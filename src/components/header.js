@@ -24,5 +24,5 @@ const Header = () => {
         </nav>
     )
 }
-console.log("hello");
+
 export default Header

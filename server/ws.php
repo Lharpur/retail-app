@@ -3,6 +3,7 @@
 
 //Errors and Exceptions
 header('Content-type: application/json; charset=UTF-8');
+
 error_reporting(E_ALL);
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', 1);
@@ -222,7 +223,7 @@ if (isset($_GET['data_fetch'])) {
                 $album_id = $sqlaction->inputFilter(($_GET['album_id']));
                 $sqlaction->displayProduct($album_id);
                 $sqlaction->log();
-                //echo json_encode(array("Success" => "Displaying Album"));
+                echo json_encode(array("Success" => "Displaying Album"));
             } else {
                 echo json_encode(array("Error" => "Unable To Find Album"));
             }
