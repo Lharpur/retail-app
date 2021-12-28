@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 const registerState = {
-  fname: null,
-  lname: null,
-  password: null,
-  cpassword: null,
-  email: null,
+  fname: "",
+  lname: "",
+  password: "",
+  cpassword: "",
+  email: "",
 };
 
 class Register extends Component {
