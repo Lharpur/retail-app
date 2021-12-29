@@ -10,8 +10,20 @@ nav li {
 
 .productWrapper {
   display: flex;
+  flex-direction: column;
   background: #eee;
   padding: 15px 15px 15px 15px;
   margin: 15px;
+}
+
+.addProductForm {
+  display: flex;
   flex-direction: column;
+
+}
+
+.addProductForm input {
+  background: #eee;
+  padding: 15px 15px 15px 15px;
+  margin: 15px;
 }
