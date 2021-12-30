@@ -212,6 +212,17 @@ if (isset($_POST['form_post'])) {
                 return;
             }
             break;
+
+        case 'productDelete':
+            if (!empty($_POST['title'])) {
+                $title = $sqlaction->inputFilter(($_POST['title']));
+                $sqlaction->deleteProducts($title);
+                $sqlaction->log();
+                echo json_encode(array("Success" => "Product Deleted"));
+            } else {
+                echo json_encode(array("Error" => "Unable To Delete Product"));
+            }
+            break;
     }
 }
 
@@ -257,17 +268,6 @@ if (isset($_GET['data_fetch'])) {
                 echo json_encode(array("Success" => "Fetched Update List"));
             } else {
                 echo json_encode(array("Error" => "Unable to Fetch Update List"));
-            }
-            break;
-
-        case 'productDelete':
-            if (!empty($_POST['title'])) {
-                $title = $sqlaction->inputFilter(($_POST['title']));
-                $sqlaction->deleteProducts($title);
-                $sqlaction->log();
-                echo json_encode(array("Success" => "Product Deleted"));
-            } else {
-                echo json_encode(array("Error" => "Unable To Delete Product"));
             }
             break;
     }
