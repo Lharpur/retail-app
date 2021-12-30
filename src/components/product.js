@@ -11,7 +11,11 @@ class Products extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
     fetch("http://localhost:8888/retail-app/server/ws.php?data_fetch=albumFetch")
+=======
+    fetch("http://localhost/retail-app/server/ws.php?data_fetch=albumFetch")
+>>>>>>> bfb4c2f485670f72c332a837fc1b38521a47e3ac
       .then((response) => response.json())
       .then((response) => {
         this.setState({
