@@ -5,6 +5,12 @@ error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', 1);
 error_reporting(E_ALL | E_STRICT);
 set_error_handler("var_dump");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Expose-Headers: X-Total-Count");
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Origin, Content-Type, X-Auth-Token, Access-Control-Allow-Credentials');
+header('Access-Control-Request-Headers: Access-Control-Allow-Origin, Content-Type, X-Auth-Token, Access-Control-Allow-Credentials');
+
 //class init
 class sqlinit
 {

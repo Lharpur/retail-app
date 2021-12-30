@@ -7,7 +7,7 @@ class Logout extends Component {
     var data = new FormData();
     data.append("form_post", "logout");
 
-    fetch("http://localhost/retail-app/server/ws.php", {
+    fetch("http://localhost:8888/retail-app/server/ws.php", {
       method: "POST",
       body: data,
     }).then(function (response) {

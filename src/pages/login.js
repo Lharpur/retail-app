@@ -32,7 +32,7 @@ class Login extends Component {
     data.append("email", this.state.email);
     data.append("password", this.state.password);
 
-    fetch("http://localhost/retail-app/server/ws.php", {
+    fetch("http://localhost:8888/retail-app/server/ws.php", {
       method: "POST",
       body: data,
     })

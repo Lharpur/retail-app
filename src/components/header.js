@@ -18,6 +18,7 @@ const Header = () => {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<About />} />
+          {/* Make admin route a protected route */}
           <Route path="/admin" element={<Admin />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
