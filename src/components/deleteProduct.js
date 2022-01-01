@@ -1,3 +1,5 @@
+// need to make default value exist in select options
+
 import React, { Component } from "react";
 
 class DeleteProduct extends Component {
@@ -60,9 +62,11 @@ class DeleteProduct extends Component {
     return (
       <form onSubmit={this.handleDeleteProductSubmit}>
         <select name="" id="" onChange={this.handleTitleChange}>
+          <option value="" defaultValue="Select An Album"
+          >Select an album</option>
           {this.state.products.map(function (response, index) {
             return (
-              <option key={index} value={response.title}>{response.title}</option>
+              <option key={index} value={response.title} defaultValue>{response.title}</option>
             )
           })}
         </select>
