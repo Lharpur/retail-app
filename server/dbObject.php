@@ -128,12 +128,12 @@ class sqlinit
         }
     }
 
-    public function displayProduct($album_id)
+    public function displayProduct($title)
     {
         try {
-            $stmt = $this->conn->prepare('SELECT  title, artist, image, format, cat, label, album_id, price, releaseDate, quantity, copies_sold FROM albums WHERE album_id = :album_id');
+            $stmt = $this->conn->prepare('SELECT  title, artist, image, format, cat, label, album_id, price, releaseDate, quantity, copies_sold FROM albums WHERE title = :title');
             $stmt->execute([
-                'album_id' => $album_id
+                'title' => $title
             ]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($result);
@@ -171,13 +171,13 @@ class sqlinit
         }
     }
 
-    public function updatePopulate($album_id)
+    public function updatePopulate($title)
     {
         try {
             $stmt = $this->conn
-                ->prepare('SELECT title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold FROM albums WHERE album_id = :album_id');
+                ->prepare('SELECT title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold FROM albums WHERE title = :title');
             $stmt->execute([
-                'album_id' => $album_id
+                'title' => $title
             ]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo json_encode($result);

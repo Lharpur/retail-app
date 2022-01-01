@@ -7,13 +7,15 @@ class DeleteProduct extends Component {
     super(props);
     this.state = {
       products: [],
-      title: ""
+      title: "",
     };
     this.handleTitleChange = this.handleTitleChange.bind(this);
   }
 
   componentDidMount() {
-    fetch("http://localhost:8888/retail-app/server/ws.php?data_fetch=selectPopulate")
+    fetch(
+      "http://localhost/retail-app/server/ws.php?data_fetch=selectPopulate"
+    )
       .then((response) => response.json())
       .then((response) => {
         this.setState({
@@ -24,12 +26,12 @@ class DeleteProduct extends Component {
   }
 
   handleTitleChange(event) {
-    console.log("testing")
+    console.log("testing");
     this.setState({
-      title: event.target.value
+      title: event.target.value,
     });
-    console.log(this.state.title)
-  };
+    console.log(this.state.title);
+  }
 
   handleDeleteProductSubmit = (event) => {
     event.preventDefault();
@@ -39,7 +41,7 @@ class DeleteProduct extends Component {
     data.append("form_post", "productDelete");
     data.append("title", this.state.title);
 
-    fetch("http://localhost:8888/retail-app/server/ws.php", {
+    fetch("http://localhost/retail-app/server/ws.php", {
       method: "POST",
       body: data,
     })
@@ -55,24 +57,27 @@ class DeleteProduct extends Component {
       })
       .catch(function (err) {
         console.log("Error", err);
-      })
+      });
   };
 
   render() {
     return (
       <form onSubmit={this.handleDeleteProductSubmit}>
         <select name="" id="" onChange={this.handleTitleChange}>
-          <option value="" defaultValue="Select An Album"
-          >Select an album</option>
+          <option value="" defaultValue="Select An Album">
+            Select an album
+          </option>
           {this.state.products.map(function (response, index) {
             return (
-              <option key={index} value={response.title} defaultValue>{response.title}</option>
-            )
+              <option key={index} value={response.title} defaultValue>
+                {response.title}
+              </option>
+            );
           })}
         </select>
         <input type="submit" value="Delete" />
       </form>
-    )
+    );
   }
 }
 

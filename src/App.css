@@ -16,13 +16,13 @@ nav li {
   margin: 15px;
 }
 
-.addProductForm {
+.AdminForm {
   display: flex;
   flex-direction: column;
 
 }
 
-.addProductForm input {
+.AdminForm input {
   background: #eee;
   padding: 15px 15px 15px 15px;
   margin: 15px;

@@ -130,7 +130,8 @@ if (isset($_POST['form_post'])) {
                     }
                     if (empty($errors)) {
                         $fileUploaded = move_uploaded_file($fileTmpName, $uploadPath);
-                        if ($fileUploaded) { } else {
+                        if ($fileUploaded) {
+                        } else {
                             echo json_encode(array("Error" => "Upload failed"));
                         }
                     } else {
@@ -222,6 +223,17 @@ if (isset($_POST['form_post'])) {
                 echo json_encode(array("Error" => "Unable To Delete Product"));
             }
             break;
+
+        case 'updatePopulate':
+            if (isset($_POST['title'])) {
+                $title = $sqlaction->inputFilter(($_POST['title']));
+                $sqlaction->updatePopulate($title);
+                $sqlaction->log();
+                // echo json_encode(array("Success" => "Fetched Update List"));
+            } else {
+                echo json_encode(array("Error" => "Unable to Fetch Update List"));
+            }
+            break;
     }
 }
 
@@ -257,17 +269,6 @@ if (isset($_GET['data_fetch'])) {
 
         case 'selectPopulate':
             $sqlaction->selectPopulate();
-            break;
-
-        case 'updatePopulate':
-            if (isset($_GET['album_id'])) {
-                $album_id = $sqlaction->inputFilter(($_GET['album_id']));
-                $sqlaction->updatePopulate($album_id);
-                $sqlaction->log();
-                echo json_encode(array("Success" => "Fetched Update List"));
-            } else {
-                echo json_encode(array("Error" => "Unable to Fetch Update List"));
-            }
             break;
     }
 }
