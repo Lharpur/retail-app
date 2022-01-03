@@ -110,7 +110,29 @@ class sqlinit
     {
         try {
             $this->conn
-                ->prepare("INSERT INTO albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold)")
+                ->prepare("INSERT INTO albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold) WHERE title = :title")
+                ->execute([
+                    'title' => $title,
+                    'artist' => $artist,
+                    'image' => $image,
+                    'format' => $format,
+                    'cat' => $cat,
+                    'label' => $label,
+                    'price' => $price,
+                    'releaseDate' => $releaseDate,
+                    'quantity' => $quantity,
+                    'copies_sold' => $copies_sold
+                ]);
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }
+    //Finish Update Function
+    public function updateAlbum($title, $artist, $image, $format, $cat, $label, $price, $releaseDate, $quantity, $copies_sold)
+    {
+        try {
+            $this->conn
+                ->prepare("UPDATE albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold)")
                 ->execute([
                     'title' => $title,
                     'artist' => $artist,

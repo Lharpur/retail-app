@@ -130,8 +130,7 @@ if (isset($_POST['form_post'])) {
                     }
                     if (empty($errors)) {
                         $fileUploaded = move_uploaded_file($fileTmpName, $uploadPath);
-                        if ($fileUploaded) {
-                        } else {
+                        if ($fileUploaded) { } else {
                             echo json_encode(array("Error" => "Upload failed"));
                         }
                     } else {
@@ -269,6 +268,115 @@ if (isset($_GET['data_fetch'])) {
 
         case 'selectPopulate':
             $sqlaction->selectPopulate();
+            break;
+    }
+}
+
+if (isset($_UPDATE['update_request'])) {
+    switch ($_UPDATE['update_request']) {
+
+        case 'updateAlbum':
+            try {
+                if (isset($_FILES['file'])) {
+                    $uploadDir = './images';
+                    $errors = [];
+                    $fileExtensionsPermitted = ['JPEG', 'JPG', 'PNG'];
+                    $fileName = $_FILES['file']['name'];
+                    $fileSize = $_FILES['file']['size'];
+                    $fileTmpName = $_FILES['file']['tmp_name'];
+                    $fileType = $_FILES['file']['type'];
+                    $tmp = explode('.', $fileName);
+                    $fileExtension = end($tmp);
+                    $uploadPath = $uploadDir . basename($fileName);
+                    $_UPDATE['file'] = $uploadPath;
+                    if (!in_array($fileExtension, $fileExtensionsPermitted)) {
+                        echo json_encode(array("Error" => "File Extension Forbidden"));
+                    }
+                    if ($fileSize > 4000000) {
+                        echo json_encode(array("Error" => "File Size Exceeded"));
+                    }
+                    if (empty($errors)) {
+                        $fileUploaded = move_uploaded_file($fileTmpName, $uploadPath);
+                        if ($fileUploaded) { } else {
+                            echo json_encode(array("Error" => "Upload failed"));
+                        }
+                    } else {
+                        foreach ($errors as $errors) {
+                            echo json_encode($errors);
+                        }
+                    }
+
+                    if (!empty($_UPDATE['title'])) {
+                        $title = $sqlaction->inputFilter(($_UPDATE['title']));
+                    } else {
+                        throw new exception("Error - Issue with title");
+                    }
+                    if (!empty($_UPDATE['artist'])) {
+                        $artist = $sqlaction->inputFilter(($_UPDATE['artist']));
+                    } else {
+                        throw new exception("Error - Issue with artist");
+                    }
+
+                    if (isset($_FILES['file'])) {
+                        $image = $sqlaction->inputFilter(($_UPDATE['file']));
+                    } else {
+                        throw new Exception("Image Path Invalid");
+                    }
+                }
+                if (!empty($_UPDATE['format'])) {
+                    $format = $sqlaction->inputFilter(($_UPDATE['format']));
+                } else {
+                    throw new exception("Error - Issue with format");
+                }
+                if (!empty($_UPDATE['cat'])) {
+                    $cat = $sqlaction->inputFilter(($_UPDATE['cat']));
+                } else {
+                    throw new exception("Error - Issue with cat");
+                }
+                if (!empty($_UPDATE['label'])) {
+                    $label = $sqlaction->inputFilter(($_UPDATE['label']));
+                } else {
+                    throw new exception("Error - Issue with label");
+                }
+                if (!empty($_UPDATE['price'])) {
+                    $price = $sqlaction->inputFilter(($_UPDATE['price']));
+                } else {
+                    throw new exception("Error - Issue with price");
+                }
+                if (!empty($_UPDATE['releaseDate'])) {
+                    $releaseDate = $sqlaction->inputFilter(($_UPDATE['releaseDate']));
+                } else {
+                    throw new exception("Error - Issue with release date");
+                }
+                if (!empty($_UPDATE['quantity'])) {
+                    $quantity = $sqlaction->inputFilter(($_UPDATE['quantity']));
+                } else {
+                    throw new exception("Error - Issue with quantity");
+                }
+                if (!empty($_UPDATE['copies_sold'])) {
+                    $copies_sold = $sqlaction->inputFilter(($_UPDATE['copies_sold']));
+                } else {
+                    throw new exception("Error - Issue with copies sold");
+                }
+            } catch (\Exception $e) {
+
+                echo json_encode(array(
+                    "Error" => "Failed To Add Product",
+                    "Message" => $e->getMessage()
+                ));
+                return;
+            }
+            try {
+                $sqlaction->updateAlbum($title, $artist, $image, $format, $cat, $label, $price, $releaseDate, $quantity, $copies_sold);
+                $sqlaction->log();
+                echo json_encode(array("Success" => "Product Added"));
+            } catch (\Exception $e) {
+                echo json_encode(array(
+                    "Error" => "Failed To Add Product",
+                    "Message" => $e->getMessage()
+                ));
+                return;
+            }
             break;
     }
 }

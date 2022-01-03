@@ -14,7 +14,7 @@ class DeleteProduct extends Component {
 
   componentDidMount() {
     fetch(
-      "http://localhost/retail-app/server/ws.php?data_fetch=selectPopulate"
+      "http://localhost:8888/retail-app/server/ws.php?data_fetch=selectPopulate"
     )
       .then((response) => response.json())
       .then((response) => {
@@ -41,7 +41,7 @@ class DeleteProduct extends Component {
     data.append("form_post", "productDelete");
     data.append("title", this.state.title);
 
-    fetch("http://localhost/retail-app/server/ws.php", {
+    fetch("http://localhost:8888/retail-app/server/ws.php", {
       method: "POST",
       body: data,
     })
