@@ -84,7 +84,7 @@ class AddProduct extends Component {
     data.append("quantity", this.state.quantity);
     data.append("copies_sold", this.state.copies_sold);
 
-    fetch("http://localhost:8888/retail-app/server/ws.php", {
+    fetch("http://localhost/retail-app/server/ws.php", {
       method: "POST",
       body: data,
     })

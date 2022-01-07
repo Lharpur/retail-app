@@ -8,6 +8,7 @@ import Navbar from "../components/navbar";
 import Admin from "../pages/admin";
 import Register from "../pages/register";
 import Login from "../pages/login";
+import Cart from "../components/cart";
 
 const Header = () => {
   return (
@@ -22,6 +23,7 @@ const Header = () => {
           <Route path="/admin" element={<Admin />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
+          <Route path="cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </nav>

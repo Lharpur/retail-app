@@ -9,27 +9,29 @@ class Products extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8888/retail-app/server/ws.php?data_fetch=albumFetch")
-      .then((response) => response.json())
-      .then((response) => {
+    fetch("http://localhost/retail-app/server/ws.php?data_fetch=albumFetch")
+      .then((product) => product.json())
+      .then((product) => {
         this.setState({
-          products: response,
+          products: product,
         });
       })
       .catch((error) => console.log(error));
   }
+
   render() {
     return (
       <ul>
-        {this.state.products.map(function (response, index) {
+        {this.state.products.map(function (product, index) {
           return (
             <div key={index} className="productWrapper">
-              <h1>{response.title}</h1>
+              <h1>{product.title}</h1>
               <img src="../images/A000001.JPG" alt="" />
-              <p>{response.artist}</p>
-              <p>{response.format}</p>
-              <p>{response.label}</p>
-              <p>Price: ${response.price}</p>
+              <p>{product.artist}</p>
+              <p>{product.format}</p>
+              <p>{product.label}</p>
+              <p>Price: ${product.price}</p>
+              <button>Add To Cart</button>
             </div>
           );
         })}
