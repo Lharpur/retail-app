@@ -20,12 +20,10 @@ const Cart = ({ cart }) => {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems])
 
   return (
-    <div className="cartContainer">
-      <div className="cartWrapper">
+      <div className="cartContainer">
         {cart.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}
-      </div>
       <h4>Cart Summary</h4>
       <div className="cartSummaryContainer">
         <div></div>
@@ -33,10 +31,11 @@ const Cart = ({ cart }) => {
           <span>Total: ({totalItems} items)</span>
           <span>$ {totalPrice}</span>
           <button>Checkout</button>
+          </div>
         </div>
       </div>
-    </div>
   )
+
 }
 
 const mapStateToProps = (state) => {
