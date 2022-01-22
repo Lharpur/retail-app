@@ -1,42 +1,29 @@
-import React, { Component } from "react";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { addToCart, loadCurrentItem } from '../redux/Shopping/shopping-actions'
 
-class Products extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-    };
-  }
-
-  componentDidMount() {
-    fetch("http://localhost/retail-app/server/ws.php?data_fetch=albumFetch")
-      .then((product) => product.json())
-      .then((product) => {
-        this.setState({
-          products: product,
-        });
-      })
-      .catch((error) => console.log(error));
-  }
-
-  render() {
-    return (
-      <ul>
-        {this.state.products.map(function (product, index) {
-          return (
-            <div key={index} className="productWrapper">
-              <h1>{product.title}</h1>
-              <img src="../images/A000001.JPG" alt="" />
-              <p>{product.artist}</p>
-              <p>{product.format}</p>
-              <p>{product.label}</p>
-              <p>Price: ${product.price}</p>
-              <button>Add To Cart</button>
-            </div>
-          );
-        })}
-      </ul>
-    );
+const Product = ({ product, addToCart, loadCurrentItem }) => {
+  return (
+    <div className="productWrapper">
+      <img className="productImg" src={product.image} alt={product.title} />
+      <p>{product.title}</p>
+      <p>{product.description}</p>
+      <p>${product.price}</p>
+      <div className="buttonWrapper">
+        <Link to={`/product/${product.id}`}>
+          <button onClick={() => loadCurrentItem(product)}>View Item</button>
+        </Link>
+        <button onClick={() => addToCart(product.id)}>Add To Cart</button>
+      </div>
+    </div>
+  )
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
   }
 }
-export default Products;
+
+export default connect(null, mapDispatchToProps)(Product)

@@ -1,76 +1,77 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 class Register extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      fname: "",
-      lname: "",
-      password: "",
-      cpassword: "",
-      email: "",
-    };
+      fname: '',
+      lname: '',
+      password: '',
+      cpassword: '',
+      email: '',
+    }
   }
 
   handleFnameChange = (event) => {
     this.setState({
       fname: event.target.value,
-    });
-  };
+    })
+  }
 
   handleLnameChange = (event) => {
     this.setState({
       lname: event.target.value,
-    });
-  };
+    })
+  }
 
   handleEmailChange = (event) => {
     this.setState({
       email: event.target.value,
-    });
-  };
+    })
+  }
 
   handlePassChange = (event) => {
     this.setState({
       password: event.target.value,
-    });
-  };
+    })
+  }
 
   handleCpassChange = (event) => {
     this.setState({
       verify_password: event.target.value,
-    });
-  };
+    })
+  }
 
   handleRegistrationSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    var data = new FormData();
-    data.append("form_post", "register");
-    data.append("fname", this.state.fname);
-    data.append("lname", this.state.lname);
-    data.append("password", this.state.password);
-    data.append("verify_password", this.state.verify_password);
-    data.append("email", this.state.email);
+    var data = new FormData()
+    data.append('form_post', 'register')
+    data.append('fname', this.state.fname)
+    data.append('lname', this.state.lname)
+    data.append('password', this.state.password)
+    data.append('verify_password', this.state.verify_password)
+    data.append('email', this.state.email)
 
-    fetch("http://localhost:8888/retail-app/server/ws.php", {
-      method: "POST",
+    fetch('http://localhost:8888/retail-app/server/ws.php', {
+      method: 'POST',
       body: data,
     }).then(function (response) {
       if (response.status !== 200) {
-        console.log("Status Code Error:" + response.status);
-        return;
+        console.log('Status Code Error:' + response.status)
+        return
       }
 
       response.json().then(function (data) {
-        console.log(data);
-      });
-    });
-  };
+        console.log(data)
+      })
+    })
+  }
   render() {
     return (
-      <div>
+      <div className="registrationContainer">
         <form onSubmit={this.handleRegistrationSubmit}>
+          <h2>Registration</h2>
           <input
             type="text"
             name="fname"
@@ -101,11 +102,11 @@ class Register extends Component {
             onChange={this.handleCpassChange}
             placeholder="Verify Password"
           />
-          <input type="submit" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default Register;
+export default Register
