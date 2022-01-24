@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { BsFillTrashFill } from 'react-icons/bs'
 
 import { adjustQty, removeFromCart } from '../redux/Shopping/shopping-actions'
 
@@ -15,19 +16,17 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
     <div className="cartWrapper">
       <img className="cartImage" src={item.image} alt={item.title} />
       <p>{item.title}</p>
-      <p>Description: {item.description}</p>
+      {/* <p>Description: {item.description}</p> */}
       <p>${item.price}</p>
-      <div>
-        <label htmlFor="qty">Qty</label>
-        <input
-          type="number"
-          min={1}
-          name="cartQty"
-          value={input}
-          onChange={onChangeHandler}
-        />
-      </div>
-      <button onClick={() => removeFromCart(item.id)}>Remove From Cart</button>
+      <label htmlFor="qty">Qty:</label>
+      <input
+        type="number"
+        min={1}
+        name="cartQty"
+        value={input}
+        onChange={onChangeHandler}
+      />
+      <BsFillTrashFill onClick={() => removeFromCart(item.id)}>Remove From Cart</BsFillTrashFill>
     </div>
   )
 }

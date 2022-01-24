@@ -20,20 +20,16 @@ const Cart = ({ cart }) => {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems])
 
   return (
-      <div className="cartContainer">
-        {cart.map((item) => (
-          <CartItem key={item.id} item={item} />
-        ))}
-      <h4>Cart Summary</h4>
+    <div className="cartContainer">
+      <h3>Cart Summary</h3>
+      {cart.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
       <div className="cartSummaryContainer">
-        <div></div>
-        <div>
-          <span>Total: ({totalItems} items)</span>
-          <span>$ {totalPrice}</span>
-          <button>Checkout</button>
-          </div>
-        </div>
+        <span>Total: ${totalPrice}</span>
+        <button>Checkout</button>
       </div>
+    </div>
   )
 
 }

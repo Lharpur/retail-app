@@ -1,7 +1,6 @@
 /* Imports */
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Condensed:wght@300&display=swap');
-
 /* Body Styling */
 
 body {
@@ -19,6 +18,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: lighter;
 }
+
 /* Nav Bar Styling */
 
 nav div {
@@ -37,10 +37,8 @@ nav li {
   font-size: 24px;
   text-decoration: none;
   /* Underline Colour Animation */
-  background-image: linear-gradient(#f88dad, #f88dad),
-    /* Starting Underline Colour Animation */
-      linear-gradient(rgb(216, 92, 9), rgb(216, 92, 9)),
-    linear-gradient(#960064, #960064);
+  background-image: linear-gradient(#f88dad, #f88dad), /* Starting Underline Colour Animation */
+  linear-gradient(rgb(216, 92, 9), rgb(216, 92, 9)), linear-gradient(#960064, #960064);
   background-size: 20px 3px, 100% 3px, 0 3px;
   background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -105,12 +103,11 @@ button {
 
 .cartWrapper {
   display: flex;
-  flex-direction: column;
-  width: 500px;
-
+  flex-direction: row;
+  width: 100%;
   background: #eee;
-  padding: 15px 15px 15px 15px;
-  margin: 15px;
+  padding: 15px 15px 15px 0px;
+  margin: 15px 0px 15px 0px;
 }
 
 .cartImage {
@@ -157,25 +154,20 @@ button {
   margin-top: 100%;
 }
 
-@media all and (min-width: 1024px) and (max-width: 1280px) {
-}
+@media all and (min-width: 1024px) and (max-width: 1280px) {}
 
-@media all and (min-width: 768px) and (max-width: 1024px) {
-}
+@media all and (min-width: 768px) and (max-width: 1024px) {}
 
-@media all and (min-width: 480px) and (max-width: 768px) {
-}
+@media all and (min-width: 480px) and (max-width: 768px) {}
 
 @media all and (max-width: 480px) {
   /* Mobile General Stylings */
-
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
   input {
     width: 90%;
     background-color: white;
@@ -185,64 +177,51 @@ button {
     margin: 5px 0px 5px 0px;
     padding: 15px 15px 15px 15px;
   }
-
   input:focus {
     outline: 2.5px solid #d85c09;
   }
-
   /* Mobile Nav Stylings */
-
   nav-bar {
     display: flex;
     justify-content: space-evenly;
     align-content: center;
   }
-
   nav li a {
     font-size: 14px;
   }
-
   .nav-bar img {
     height: 50px;
     width: 50px;
   }
-
   .nav-link {
     display: none;
   }
-
   .nav-bar form {
     display: flex;
     flex-direction: row;
   }
-
   .nav-bar form input {
     color: #d85c09;
     text-decoration: none;
     font-size: 18px;
   }
-
   .nav-icon {
     display: block;
     font-size: 30px;
     color: #d85c09;
   }
-
   .cart-icon {
     display: block;
     font-size: 25px;
     color: #d85c09;
   }
-
   /* Mobile Product Stylings */
-
   .productContainer {
     display: grid;
     grid-template-columns: [col-1] auto [col-2] auto;
     grid-column-gap: 10px;
     margin: 0px 10px 0px 10px;
   }
-
   .productWrapper {
     display: flex;
     flex-direction: column;
@@ -250,12 +229,10 @@ button {
     font-size: 14px;
     margin: 20px auto auto auto;
   }
-
   .productWrapper p {
     text-align: center;
     margin: 5px;
   }
-
   .productWrapper p:nth-of-type(1) {
     font-size: 16px;
   }
@@ -265,18 +242,15 @@ button {
   .productWrapper p:nth-of-type(3) {
     font-size: 14px;
   }
-
   .productImg {
     height: 150px;
     width: 150px;
   }
-
   .buttonWrapper {
     display: flex;
     flex-direction: column;
     background-color: #eee;
   }
-
   .buttonWrapper button {
     width: 110px;
     height: 30px;
@@ -284,29 +258,23 @@ button {
     border: 1.5px solid #d85c09;
     cursor: pointer;
   }
-
   /* Mobile Admin Stylings */
-
   .adminContainer {
     display: flex;
     flex-direction: column;
   }
-
   .adminWrapper {
     display: flex;
     flex-direction: column;
   }
-
   .adminWrapper select {
     text-align: center;
     border: 1.5px solid #d85c09;
     cursor: pointer;
   }
-
   .adminWrapper select:focus {
     outline: 2.5px solid #d85c09;
   }
-
   .Collapsible {
     width: 100%;
     background-color: white;
@@ -314,22 +282,42 @@ button {
     border: 0.5px solid #d85c09;
     margin: 5px 0px 5px 0px;
   }
-
   .Collapsible span {
     font-size: 24px;
   }
-
   /* Mobile Cart Styling */
-
+  .cartContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cartContainer h3 {
+    text-align: center;
+    font-size: 24px;
+  }
+  .cartWrapper {
+    width: 100%;
+  }
+  .cartWrapper img {
+    height: 100px;
+    width: 100px;
+  }
+  .cartWrapper input {
+    width: 25px;
+    height: 25px;
+  }
+  .cartWrapper button {
+    width: 30px;
+    height: 10px;
+  }
   .cartSummaryContainer {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
+    margin: 0px 15px 5px 0px;
   }
-
   .cartSummaryContainer span {
     margin: 0px 10px 0px 5px;
   }
-
   .cartSummaryContainer button {
     width: 110px;
     height: 30px;
