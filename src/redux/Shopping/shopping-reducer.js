@@ -29,6 +29,69 @@ const INITIAL_STATE = {
       image:
         'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
     },
+    {
+      id: 4,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
+    {
+      id: 5,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
+    {
+      id: 6,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
+    {
+      id: 7,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
+    {
+      id: 8,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
+    {
+      id: 9,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
+    {
+      id: 10,
+      title: 'Stack Of Books',
+      description:
+        'These books will keep you busy all throughout the entire lockdown and give you some great advise from famous people',
+      price: 150.0,
+      image:
+        'https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
+    },
   ],
   cart: [],
   currentItem: [],

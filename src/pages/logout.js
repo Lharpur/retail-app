@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { FiLogOut } from 'react-icons/fi'
-
+import { Link } from 'react-router-dom'
 class Logout extends Component {
   handleLogoutSubmit = (event) => {
     event.preventDefault()
@@ -35,11 +34,13 @@ class Logout extends Component {
   }
   render() {
     return (
-      <FiLogOut
-        className="nav-icon"
-        id="logout-btn"
+      <Link
+        to="/"
+        className="mobile-nav-link"
         onClick={this.handleLogoutSubmit}
-      />
+      >
+        Logout
+      </Link>
     )
   }
 }

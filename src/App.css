@@ -4,6 +4,7 @@
 /* Body Styling */
 
 body {
+  background: #eee;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -17,45 +18,145 @@ body {
 * {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: lighter;
+  text-decoration: none;
+}
+
+/* General Input Stylings */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  width: 90%;
+  background-color: white;
+  text-align: center;
+  border: 1.5px solid #ff5400;
+  cursor: pointer;
+  margin: 5px 0px 5px 0px;
+  padding: 15px 15px 15px 15px;
+}
+input:focus {
+  outline: 2.5px solid #ff5400;
 }
 
 /* Nav Bar Styling */
-
-nav div {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #fbfbff;
-}
 
 nav li {
   list-style-type: none;
 }
 
-.nav-link {
+.menuNav a {
   color: black;
   font-size: 24px;
   text-decoration: none;
   /* Underline Colour Animation */
-  background-image: linear-gradient(#f88dad, #f88dad), /* Starting Underline Colour Animation */
-  linear-gradient(rgb(216, 92, 9), rgb(216, 92, 9)), linear-gradient(#960064, #960064);
+  background-image: linear-gradient(#ff5400, #ff5400),
+    /* Starting Underline Colour Animation */
+      linear-gradient(rgb(255, 84, 0), rgb(255, 84, 0)),
+    linear-gradient(#da0492, #da0492);
   background-size: 20px 3px, 100% 3px, 0 3px;
   background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
   background-repeat: no-repeat;
   transition: background-size 0.5s linear, background-position 0.5s linear;
 }
 
-.nav-link:hover {
+.menuNav a:hover {
   background-size: 20px 3px, 0 3px, 100% 3px;
   background-position: calc(100% + 20px) 100%, 100% 100%, 0 100%;
+}
+
+.activeNavLink {
+  background-image: linear-gradient(#da0492, #da0492);
 }
 
 nav li a:visited {
   color: black;
 }
 
-.nav-icon {
-  display: none;
+.hamburger {
+  display: flex;
+}
+
+.NavBarContent {
+  display: flex;
+  align-items: center;
+  background-color: #fbfbff;
+  text-align: center;
+  position: relative;
+}
+
+.NavBarContent a {
+  padding: 0;
+}
+
+.navLogo img {
+  margin: 15px 10px 0px 15px;
+  height: 50px;
+  width: 50px;
+}
+
+.navLogo {
+  display: flex;
+  text-align: center;
+}
+
+.navLogo p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff5400;
+  text-decoration: none;
+}
+
+.cart-icon {
+  margin-left: auto;
+  margin-right: 10px;
+  font-size: 25px;
+  color: #ff5400;
+}
+.NavBarContent button {
+  width: 40px;
+  height: 40px;
+  left: 40px;
+  top: 40px;
+  z-index: 14;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.menuNav {
+  background: #ffc2df;
+  height: 100vh;
+  width: 0;
+  max-width: 290px;
+  margin-bottom: 0;
+  position: fixed;
+  right: -40px;
+  bottom: 0;
+  z-index: 13;
+  overflow-y: scroll;
+  list-style: none;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+.menuNav.showMenu {
+  width: 100%;
+}
+
+.menuNav a {
+  display: block;
+  font-size: 24px;
+  padding: 20px 40px;
+  text-decoration: none;
+  color: #ff5400;
+  text-transform: uppercase;
+}
+
+.menuNav a:first-child {
+  margin-top: 7rem;
 }
 
 #logout-btn {
@@ -69,11 +170,6 @@ img {
   width: 100px;
 }
 
-button {
-  height: 50px;
-  width: 200px;
-}
-
 .icon {
   height: 30px;
   width: 30px;
@@ -81,17 +177,52 @@ button {
 
 /* Product Stylings */
 
+.productContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .productWrapper {
   display: flex;
   flex-direction: column;
+  flex-basis: 16%;
   background: #eee;
-  padding: 15px 15px 15px 15px;
-  margin: 15px;
+  padding: 2%;
+  margin: 15px 5px 15px 5px;
 }
 
 .productImg {
-  height: 200px;
+  max-width: 100%;
   width: 200px;
+  height: 200px;
+  align-self: center;
+}
+
+.productInfo {
+  text-align: center;
+}
+
+.productInfo h3,
+h6,
+h4 {
+  margin: 15px 0px 15px 0px;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonWrapper a button,
+button {
+  width: 150px;
+  height: 30px;
+  margin: 5px 0px 5px 0px;
+  border: 1.5px solid #ff5400;
+  cursor: pointer;
 }
 
 /* Cart Stylings */
@@ -117,6 +248,23 @@ button {
 
 /* Admin Stylings */
 
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+}
+.adminWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.adminWrapper select {
+  text-align: center;
+  border: 1.5px solid #ff5400;
+  cursor: pointer;
+}
+.adminWrapper select:focus {
+  outline: 2.5px solid #ff5400;
+}
+
 .adminForm {
   display: flex;
   flex-direction: column;
@@ -136,8 +284,39 @@ button {
 }
 
 .Collapsible {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  width: 100%;
+  background-color: white;
+  padding: 25px 25px 25px 25px;
+  border: 0.5px solid #ff5400;
+}
+
+.Collapsible span {
+  font-size: 24px;
+  margin: 5px 0px 5px 0px;
+}
+
+/* Registration Container Styling */
+
+.registrationContainer input {
+  width: 30%;
+}
+.registrationContainer input:last-of-type {
+  width: 20%;
+}
+
+/* Login Container Styling */
+
+.loginContainer input {
+  width: 30%;
+}
+.loginContainer input:last-of-type {
+  width: 20%;
 }
 
 /* Footer Stylings */
@@ -150,71 +329,36 @@ button {
   background-color: #fac748;
   height: 50px;
   clear: both;
-  position: relative;
+  position: fixed;
   margin-top: 100%;
+  bottom: 0;
+  width: 100%;
 }
 
-@media all and (min-width: 1024px) and (max-width: 1280px) {}
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  .productWrapper {
+    flex: 1 18%;
+    padding: 2%;
+  }
+}
 
-@media all and (min-width: 768px) and (max-width: 1024px) {}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .productWrapper {
+    flex: 1 21%;
+    padding: 2%;
+  }
+}
 
-@media all and (min-width: 480px) and (max-width: 768px) {}
+@media all and (min-width: 480px) and (max-width: 768px) {
+}
 
 @media all and (max-width: 480px) {
   /* Mobile General Stylings */
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  input {
-    width: 90%;
-    background-color: white;
-    text-align: center;
-    border: 1.5px solid #d85c09;
-    cursor: pointer;
-    margin: 5px 0px 5px 0px;
-    padding: 15px 15px 15px 15px;
-  }
-  input:focus {
-    outline: 2.5px solid #d85c09;
-  }
+
   /* Mobile Nav Stylings */
-  nav-bar {
-    display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-  }
-  nav li a {
-    font-size: 14px;
-  }
-  .nav-bar img {
-    height: 50px;
-    width: 50px;
-  }
-  .nav-link {
-    display: none;
-  }
-  .nav-bar form {
-    display: flex;
-    flex-direction: row;
-  }
-  .nav-bar form input {
-    color: #d85c09;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  .nav-icon {
-    display: block;
-    font-size: 30px;
-    color: #d85c09;
-  }
-  .cart-icon {
-    display: block;
-    font-size: 25px;
-    color: #d85c09;
-  }
+
+  /* Mobile Hamburger Styling */
+
   /* Mobile Product Stylings */
   .productContainer {
     display: grid;
@@ -223,68 +367,12 @@ button {
     margin: 0px 10px 0px 10px;
   }
   .productWrapper {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    font-size: 14px;
-    margin: 20px auto auto auto;
+    flex: 1 30%;
+    padding: 5%;
   }
-  .productWrapper p {
-    text-align: center;
-    margin: 5px;
-  }
-  .productWrapper p:nth-of-type(1) {
-    font-size: 16px;
-  }
-  .productWrapper p:nth-of-type(2) {
-    font-size: 12px;
-  }
-  .productWrapper p:nth-of-type(3) {
-    font-size: 14px;
-  }
-  .productImg {
-    height: 150px;
-    width: 150px;
-  }
-  .buttonWrapper {
-    display: flex;
-    flex-direction: column;
-    background-color: #eee;
-  }
-  .buttonWrapper button {
-    width: 110px;
-    height: 30px;
-    margin: 5px 0px 5px 0px;
-    border: 1.5px solid #d85c09;
-    cursor: pointer;
-  }
+
   /* Mobile Admin Stylings */
-  .adminContainer {
-    display: flex;
-    flex-direction: column;
-  }
-  .adminWrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .adminWrapper select {
-    text-align: center;
-    border: 1.5px solid #d85c09;
-    cursor: pointer;
-  }
-  .adminWrapper select:focus {
-    outline: 2.5px solid #d85c09;
-  }
-  .Collapsible {
-    width: 100%;
-    background-color: white;
-    padding: 25px 25px 25px 25px;
-    border: 0.5px solid #d85c09;
-    margin: 5px 0px 5px 0px;
-  }
-  .Collapsible span {
-    font-size: 24px;
-  }
+
   /* Mobile Cart Styling */
   .cartContainer {
     display: grid;
@@ -322,7 +410,7 @@ button {
     width: 110px;
     height: 30px;
     margin: 5px 0px 5px 0px;
-    border: 1.5px solid #d85c09;
+    border: 1.5px solid #ff5400;
     cursor: pointer;
   }
 }

@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Logout from '../pages/logout'
 import { connect } from 'react-redux'
+// import Hamburger from './hamburgerNav'
 
 //Icon Imports//
-import { FaRecordVinyl, FaCog, FaShoppingCart } from 'react-icons/fa'
-import { FiLogOut, FiLogIn } from 'react-icons/fi'
-import { AiFillInfoCircle, AiFillHome } from 'react-icons/ai'
-import { MdAppRegistration } from 'react-icons/md'
+import { FaShoppingCart } from 'react-icons/fa'
+import { MdClose } from 'react-icons/md'
+import { FiMenu } from 'react-icons/fi'
 
 const Navbar = ({ cart }) => {
+  // Cart State Management //
+
   const [cartCount, setCartCount] = useState(0)
 
   useEffect(() => {
@@ -20,82 +22,98 @@ const Navbar = ({ cart }) => {
     setCartCount(count)
   }, [cart, cartCount])
 
+  // Hamburger State Menu //
+
+  const [navbarOpen, setNavbarOpen] = useState(false)
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen)
+  }
+
+  const closeMenu = () => {
+    setNavbarOpen(false)
+  }
+
   return (
-    <div className="nav-bar">
-      <img src={require('../images/logo.png')} alt="" />
-      {/* Home Icon */}
+    // Fix Hamburger Menu//
+    <nav className="NavBar">
+      <div className="NavBarContent">
+        {/* Home Icon */}
+        <Link to="/" className="navLogo">
+          <img src={require('../images/logo.png')} alt="" />
+          <p>Heliacal Records</p>
+        </Link>
 
-      <Link to="/" className="nav-link">
-        Home
-      </Link>
-
-      <Link to="/">
-        <AiFillHome className="nav-icon" />
-      </Link>
-
-      {/* Product Icon */}
-      <Link to="/product" className="nav-link">
-        Products
-      </Link>
-
-      <Link to="/product">
-        <FaRecordVinyl className="nav-icon" />
-      </Link>
-
-      {/* About Icon */}
-
-      <Link to="/about" className="nav-link">
-        About
-      </Link>
-
-      <Link to="/about">
-        <AiFillInfoCircle className="nav-icon" />
-      </Link>
-
-      {/* Admin Icon */}
-
-      <Link to="/admin" className="nav-link">
-        Admin
-      </Link>
-
-      <Link to="/admin">
-        <FaCog className="nav-icon" />
-      </Link>
-
-      {/* Register Icon */}
-
-      <Link to="/register" className="nav-link">
-        Register
-      </Link>
-
-      <Link to="/register">
-        <MdAppRegistration className="nav-icon" />
-      </Link>
-
-      {/* Cart Icon */}
-
-      <Link to="/cart" className="cart-icon">
-        <FaShoppingCart />
-        {cartCount}
-      </Link>
-
-      {/* Login Icon */}
-
-      <Link to="/login" className="nav-link">
-        Login
-      </Link>
-
-      <Link to="/login">
-        <FiLogIn className="nav-icon" />
-      </Link>
-
-      {/* Logout Icon */}
-      <Logout />
-
-      <Link to="/" className="nav-link">
-        <FiLogOut className="nav-icon" />
-      </Link>
-    </div>
+        <Link to="/cart" className="cart-icon">
+          <FaShoppingCart />
+          {cartCount}
+        </Link>
+        <button onClick={handleToggle}>
+          {navbarOpen ? (
+            <MdClose
+              style={{ color: '#ff5400', width: '30px', height: '30px' }}
+            />
+          ) : (
+            <FiMenu
+              style={{ color: '#ff5400', width: '30px', height: '30px' }}
+            />
+          )}
+        </button>
+      </div>
+      <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
+        <Link
+          activeclassname="activeNavLink"
+          to="/product"
+          className="mobile-nav-link"
+          onClick={() => closeMenu()}
+          exact
+        >
+          Products
+        </Link>
+        {/* Mobile About Item */}
+        <Link
+          activeclassname="activeNavLink"
+          to="/about"
+          className="mobile-nav-link"
+          onClick={() => closeMenu()}
+          exact
+        >
+          About
+        </Link>
+        {/* Mobile Admin Item */}
+        <Link
+          activeclassname="activeNavLink"
+          to="/admin"
+          className="mobile-nav-link"
+          onClick={() => closeMenu()}
+          exact
+        >
+          Admin
+        </Link>
+        {/* Mobile Register Item */}
+        <Link
+          activeclassname="activeNavLink"
+          to="/register"
+          className="mobile-nav-link"
+          onClick={() => closeMenu()}
+          exact
+        >
+          Register
+        </Link>
+        {/* Mobile Login Item */}
+        <Link
+          activeclassname="activeNavLink"
+          to="/login"
+          className="mobile-nav-link"
+          onClick={() => closeMenu()}
+          exact
+        >
+          Login
+        </Link>
+        {/* Mobile Logout Item */}
+        <Logout className="mobile-nav-link" />
+      </ul>
+    </nav>
   )
 }
 

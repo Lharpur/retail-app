@@ -7,9 +7,11 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
     <div className="productWrapper">
       <img className="productImg" src={product.image} alt={product.title} />
-      <p>{product.title}</p>
-      <p>{product.description}</p>
-      <p>${product.price}</p>
+      <div className="productInfo">
+        <h3>{product.title}</h3>
+        <h6>{product.description}</h6>
+        <h4>${product.price}</h4>
+      </div>
       <div className="buttonWrapper">
         <Link to={`/product/${product.id}`}>
           <button onClick={() => loadCurrentItem(product)}>View Item</button>
