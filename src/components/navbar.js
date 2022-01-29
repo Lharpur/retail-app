@@ -34,87 +34,151 @@ const Navbar = ({ cart }) => {
     setNavbarOpen(false)
   }
 
-  return (
-    // Fix Hamburger Menu//
-    <nav className="NavBar">
-      <div className="NavBarContent">
-        {/* Home Icon */}
-        <Link to="/" className="navLogo">
-          <img src={require('../images/logo.png')} alt="" />
-          <p>Heliacal Records</p>
-        </Link>
+  if (localStorage.getItem('loggedIn') === 'true') {
+    return (
+      // Fix Hamburger Menu//
+      <nav className="NavBar">
+        <div className="NavBarContent">
+          {/* Home Icon */}
+          <Link to="/" className="navLogo">
+            <img src={require('../images/logo.png')} alt="" />
+            <p>Heliacal Records</p>
+          </Link>
 
-        <Link to="/cart" className="cart-icon">
-          <FaShoppingCart />
-          {cartCount}
+          <Link to="/cart" className="cart-icon">
+            <FaShoppingCart />
+            {cartCount}
+          </Link>
+          <button onClick={handleToggle}>
+            {navbarOpen ? (
+              <MdClose
+                style={{ color: '#ff5400', width: '30px', height: '30px' }}
+              />
+            ) : (
+                <FiMenu
+                  style={{ color: '#ff5400', width: '30px', height: '30px' }}
+                />
+              )}
+          </button>
+        </div>
+        <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
+          <Link
+            activeclassname="activeNavLink"
+            to="/product"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Products
         </Link>
-        <button onClick={handleToggle}>
-          {navbarOpen ? (
-            <MdClose
-              style={{ color: '#ff5400', width: '30px', height: '30px' }}
-            />
-          ) : (
-            <FiMenu
-              style={{ color: '#ff5400', width: '30px', height: '30px' }}
-            />
-          )}
-        </button>
-      </div>
-      <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
-        <Link
-          activeclassname="activeNavLink"
-          to="/product"
-          className="mobile-nav-link"
-          onClick={() => closeMenu()}
-          exact
-        >
-          Products
+          {/* Mobile About Item */}
+          <Link
+            activeclassname="activeNavLink"
+            to="/about"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            About
         </Link>
-        {/* Mobile About Item */}
-        <Link
-          activeclassname="activeNavLink"
-          to="/about"
-          className="mobile-nav-link"
-          onClick={() => closeMenu()}
-          exact
-        >
-          About
+          {/* Mobile Admin Item */}
+          <Link
+            activeclassname="activeNavLink"
+            to="/admin"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Admin
         </Link>
-        {/* Mobile Admin Item */}
-        <Link
-          activeclassname="activeNavLink"
-          to="/admin"
-          className="mobile-nav-link"
-          onClick={() => closeMenu()}
-          exact
-        >
-          Admin
+          {/* Mobile Logout Item */}
+          <Logout className="mobile-nav-link" />
+        </ul>
+      </nav>
+    )
+
+  } else {
+    return (
+      <nav className="NavBar">
+        <div className="NavBarContent">
+          {/* Home Icon */}
+          <Link to="/" className="navLogo">
+            <img src={require('../images/logo.png')} alt="" />
+            <p>Heliacal Records</p>
+          </Link>
+
+          <Link to="/cart" className="cart-icon">
+            <FaShoppingCart />
+            {cartCount}
+          </Link>
+          <button onClick={handleToggle}>
+            {navbarOpen ? (
+              <MdClose
+                style={{ color: '#ff5400', width: '30px', height: '30px' }}
+              />
+            ) : (
+                <FiMenu
+                  style={{ color: '#ff5400', width: '30px', height: '30px' }}
+                />
+              )}
+          </button>
+        </div>
+        <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
+          <Link
+            activeclassname="activeNavLink"
+            to="/product"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Products
         </Link>
-        {/* Mobile Register Item */}
-        <Link
-          activeclassname="activeNavLink"
-          to="/register"
-          className="mobile-nav-link"
-          onClick={() => closeMenu()}
-          exact
-        >
-          Register
+          {/* Mobile About Item */}
+          <Link
+            activeclassname="activeNavLink"
+            to="/about"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            About
         </Link>
-        {/* Mobile Login Item */}
-        <Link
-          activeclassname="activeNavLink"
-          to="/login"
-          className="mobile-nav-link"
-          onClick={() => closeMenu()}
-          exact
-        >
-          Login
+          {/* Mobile Admin Item */}
+          <Link
+            activeclassname="activeNavLink"
+            to="/admin"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Admin
         </Link>
-        {/* Mobile Logout Item */}
-        <Logout className="mobile-nav-link" />
-      </ul>
-    </nav>
-  )
+          {/* Mobile Register Item */}
+          <Link
+            activeclassname="activeNavLink"
+            to="/register"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Register
+        </Link>
+          {/* Mobile Login Item */}
+          <Link
+            activeclassname="activeNavLink"
+            to="/login"
+            className="mobile-nav-link"
+            onClick={() => closeMenu()}
+            exact
+          >
+            Login
+        </Link>
+          {/* Mobile Logout Item */}
+          <Logout className="mobile-nav-link" />
+        </ul>
+      </nav>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {

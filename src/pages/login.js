@@ -51,6 +51,7 @@ class Login extends Component {
           } else {
             console.log('login successful')
             localStorage.setItem('loggedIn', 'true')
+            window.location.href = '/'
           }
         })
       })
