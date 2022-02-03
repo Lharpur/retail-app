@@ -1,32 +1,15 @@
 import React from 'react'
-import { Route, Navigate } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
 
-
-export const PrivateRoute = ({
-    component: Component,
-    ...rest
-}) => {
-    return (
-        <Route
-            {...rest}
-            render={props => {
-                if (localStorage.getItem('loggedIn') === 'true') {
-                    return <Component {...props} />;
-                } else {
-                    return (
-                        <Navigate
-                            to={{
-                                pathname: "./Login",
-                                state: {
-                                    from: props.location
-                                }
-                            }}
-                        />
-                    )
-                }
-            }}
-        />
-    )
+const useAuth = () => {
+  if (localStorage.getItem('loggedIn') === 'true') {
+    const user = { loggedIn: true }
+    return user && user.loggedIn
+  }
 }
 
-export default PrivateRoute
+const PrivateWrapper = () => {
+  const isAuth = useAuth()
+  return isAuth ? <Outlet /> : <Navigate to="/login" />
+}
+export default PrivateWrapper

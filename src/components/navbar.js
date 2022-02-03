@@ -41,8 +41,7 @@ const Navbar = ({ cart }) => {
         <div className="NavBarContent">
           {/* Home Icon */}
           <Link to="/" className="navLogo">
-            <img src={require('../images/logo.png')} alt="" />
-            <p>Heliacal Records</p>
+            <p>Brand Name</p>
           </Link>
 
           <Link to="/cart" className="cart-icon">
@@ -52,13 +51,13 @@ const Navbar = ({ cart }) => {
           <button onClick={handleToggle}>
             {navbarOpen ? (
               <MdClose
-                style={{ color: '#ff5400', width: '30px', height: '30px' }}
+                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
               />
             ) : (
-                <FiMenu
-                  style={{ color: '#ff5400', width: '30px', height: '30px' }}
-                />
-              )}
+              <FiMenu
+                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
+              />
+            )}
           </button>
         </div>
         <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
@@ -70,7 +69,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             Products
-        </Link>
+          </Link>
           {/* Mobile About Item */}
           <Link
             activeclassname="activeNavLink"
@@ -80,7 +79,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             About
-        </Link>
+          </Link>
           {/* Mobile Admin Item */}
           <Link
             activeclassname="activeNavLink"
@@ -90,21 +89,19 @@ const Navbar = ({ cart }) => {
             exact
           >
             Admin
-        </Link>
+          </Link>
           {/* Mobile Logout Item */}
           <Logout className="mobile-nav-link" />
         </ul>
       </nav>
     )
-
   } else {
     return (
       <nav className="NavBar">
         <div className="NavBarContent">
           {/* Home Icon */}
           <Link to="/" className="navLogo">
-            <img src={require('../images/logo.png')} alt="" />
-            <p>Heliacal Records</p>
+            <p>Brand Name</p>
           </Link>
 
           <Link to="/cart" className="cart-icon">
@@ -114,13 +111,13 @@ const Navbar = ({ cart }) => {
           <button onClick={handleToggle}>
             {navbarOpen ? (
               <MdClose
-                style={{ color: '#ff5400', width: '30px', height: '30px' }}
+                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
               />
             ) : (
-                <FiMenu
-                  style={{ color: '#ff5400', width: '30px', height: '30px' }}
-                />
-              )}
+              <FiMenu
+                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
+              />
+            )}
           </button>
         </div>
         <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
@@ -132,7 +129,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             Products
-        </Link>
+          </Link>
           {/* Mobile About Item */}
           <Link
             activeclassname="activeNavLink"
@@ -142,7 +139,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             About
-        </Link>
+          </Link>
           {/* Mobile Admin Item */}
           <Link
             activeclassname="activeNavLink"
@@ -152,7 +149,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             Admin
-        </Link>
+          </Link>
           {/* Mobile Register Item */}
           <Link
             activeclassname="activeNavLink"
@@ -162,7 +159,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             Register
-        </Link>
+          </Link>
           {/* Mobile Login Item */}
           <Link
             activeclassname="activeNavLink"
@@ -172,7 +169,7 @@ const Navbar = ({ cart }) => {
             exact
           >
             Login
-        </Link>
+          </Link>
           {/* Mobile Logout Item */}
           <Logout className="mobile-nav-link" />
         </ul>

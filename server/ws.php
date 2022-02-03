@@ -130,7 +130,8 @@ if (isset($_POST['form_post'])) {
                     }
                     if (empty($errors)) {
                         $fileUploaded = move_uploaded_file($fileTmpName, $uploadPath);
-                        if ($fileUploaded) { } else {
+                        if ($fileUploaded) {
+                        } else {
                             echo json_encode(array("Error" => "Upload failed"));
                         }
                     } else {
@@ -297,7 +298,8 @@ if (isset($_UPDATE['update_request'])) {
                     }
                     if (empty($errors)) {
                         $fileUploaded = move_uploaded_file($fileTmpName, $uploadPath);
-                        if ($fileUploaded) { } else {
+                        if ($fileUploaded) {
+                        } else {
                             echo json_encode(array("Error" => "Upload failed"));
                         }
                     } else {

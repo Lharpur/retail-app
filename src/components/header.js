@@ -11,7 +11,7 @@ import Cart from '../components/cart'
 import Products from './products'
 import SingleItem from './singleItem'
 import { connect } from 'react-redux'
-import PrivateRoute from './PrivateRoute';
+import PrivateWrapper from './PrivateRoute'
 
 const Header = () => {
   return (
@@ -23,7 +23,9 @@ const Header = () => {
         <Route path="/product/:id" element={<SingleItem />} />
         <Route path="/about" element={<About />} />
         {/* Make admin route a protected route */}
-        <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
+        <Route element={<PrivateWrapper />}>
+          <Route path="/admin" element={<Admin />} />
+        </Route>
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="cart" element={<Cart />} />

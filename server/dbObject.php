@@ -110,7 +110,7 @@ class sqlinit
     {
         try {
             $this->conn
-                ->prepare("INSERT INTO albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold) WHERE title = :title")
+                ->prepare("INSERT INTO albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold)")
                 ->execute([
                     'title' => $title,
                     'artist' => $artist,
@@ -132,7 +132,7 @@ class sqlinit
     {
         try {
             $this->conn
-                ->prepare("UPDATE albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold)")
+                ->prepare("UPDATE albums (title, artist, image, format, cat, label, price, releaseDate, quantity, copies_sold) VALUES (:title, :artist, :image, :format, :cat, :label, :price, :releaseDate, :quantity, :copies_sold)  WHERE title = :title")
                 ->execute([
                     'title' => $title,
                     'artist' => $artist,

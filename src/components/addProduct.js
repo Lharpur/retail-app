@@ -106,7 +106,6 @@ class AddProduct extends Component {
   render() {
     return (
       <form onSubmit={this.handleAddProductSubmit} className="adminForm">
-        
         <input
           type="text"
           name="title"

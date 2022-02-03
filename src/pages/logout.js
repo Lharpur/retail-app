@@ -26,8 +26,10 @@ class Logout extends Component {
           console.log('Logout Successful')
           console.log(localStorage.getItem('loggedIn'))
           localStorage.setItem('loggedIn', 'false')
+          window.location.href = '/'
         } else {
           console.log('Logout Failed')
+          window.location.href = '/'
         }
       })
     })

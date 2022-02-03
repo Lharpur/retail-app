@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { BsFillTrashFill } from 'react-icons/bs'
-
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { adjustQty, removeFromCart } from '../redux/Shopping/shopping-actions'
 
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
@@ -12,22 +12,40 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
     adjustQty(item.id, event.target.value)
   }
 
+  const saveToLocal = () => {
+    localStorage.setItem(item.id, item.title)
+    console.log('Product Saved')
+  }
+
   return (
-    <div className="cartWrapper">
-      <img className="cartImage" src={item.image} alt={item.title} />
-      <p>{item.title}</p>
-      {/* <p>Description: {item.description}</p> */}
-      <p>${item.price}</p>
-      <label htmlFor="qty">Qty:</label>
-      <input
-        type="number"
-        min={1}
-        name="cartQty"
-        value={input}
-        onChange={onChangeHandler}
-      />
-      <BsFillTrashFill onClick={() => removeFromCart(item.id)}>Remove From Cart</BsFillTrashFill>
-    </div>
+    <tr className="cartWrapper">
+      <td>
+        <img className="cartImage" src={item.image} alt={item.title} />
+        <h4>{item.title}</h4>
+      </td>
+      <td>
+        <input
+          type="number"
+          min={1}
+          name="cartQty"
+          value={input}
+          onChange={onChangeHandler}
+        />
+      </td>
+      <td>
+        <h4>${item.price}</h4>
+      </td>
+      <td>
+        <AiFillHeart className="saveIcon" onClick={() => saveToLocal(item.id)}>
+          Save
+        </AiFillHeart>
+      </td>
+      <td>
+        <BsFillTrashFill onClick={() => removeFromCart(item.id)}>
+          Remove From Cart
+        </BsFillTrashFill>
+      </td>
+    </tr>
   )
 }
 

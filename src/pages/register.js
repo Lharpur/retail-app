@@ -53,7 +53,7 @@ class Register extends Component {
     data.append('verify_password', this.state.verify_password)
     data.append('email', this.state.email)
 
-    fetch('http://localhost:8888/retail-app/server/ws.php', {
+    fetch('http://localhost/retail-app/server/ws.php', {
       method: 'POST',
       body: data,
     }).then(function (response) {

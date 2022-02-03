@@ -1,16 +1,24 @@
 /* Imports */
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@100&display=swap');
+
 /* Body Styling */
 
+html,
 body {
-  background: #eee;
+  background: #c7e4e8;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.App,
+#root {
+  height: 100%;
 }
 
 /* General Font Styling */
@@ -30,15 +38,15 @@ form {
 }
 input {
   width: 90%;
-  background-color: white;
+  background-color: #c7e4e8;
   text-align: center;
-  border: 1.5px solid #ff5400;
+  border: 1.5px solid #97c6cf;
   cursor: pointer;
   margin: 5px 0px 5px 0px;
   padding: 15px 15px 15px 15px;
 }
 input:focus {
-  outline: 2.5px solid #ff5400;
+  outline: 2.5px solid #97c6cf;
 }
 
 /* Nav Bar Styling */
@@ -48,14 +56,14 @@ nav li {
 }
 
 .menuNav a {
-  color: black;
+  color: #12134e;
   font-size: 24px;
   text-decoration: none;
   /* Underline Colour Animation */
-  background-image: linear-gradient(#ff5400, #ff5400),
+  background-image: linear-gradient(#f3b888, #f3b888),
     /* Starting Underline Colour Animation */
-      linear-gradient(rgb(255, 84, 0), rgb(255, 84, 0)),
-    linear-gradient(#da0492, #da0492);
+      linear-gradient(rgb(233, 178, 0.3), rgb(233, 178, 0.3)),
+    linear-gradient(#e58f65, #e58f65);
   background-size: 20px 3px, 100% 3px, 0 3px;
   background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -68,11 +76,11 @@ nav li {
 }
 
 .activeNavLink {
-  background-image: linear-gradient(#da0492, #da0492);
+  background-image: linear-gradient(#e6ed96, #e6ed96);
 }
 
 nav li a:visited {
-  color: black;
+  color: #12134e;
 }
 
 .hamburger {
@@ -82,7 +90,7 @@ nav li a:visited {
 .NavBarContent {
   display: flex;
   align-items: center;
-  background-color: #fbfbff;
+  background-color: #c7e4e8;
   text-align: center;
   position: relative;
 }
@@ -91,30 +99,30 @@ nav li a:visited {
   padding: 0;
 }
 
-.navLogo img {
-  margin: 15px 10px 0px 15px;
-  height: 50px;
-  width: 50px;
-}
-
 .navLogo {
   display: flex;
   text-align: center;
 }
 
 .navLogo p {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
-  color: #ff5400;
+  color: #89c09f;
   text-decoration: none;
+  margin-left: 25px;
 }
 
 .cart-icon {
   margin-left: auto;
   margin-right: 10px;
   font-size: 25px;
-  color: #ff5400;
+  color: #89c09f;
 }
+
+.cart-icon:hover {
+  opacity: 0.7;
+}
+
 .NavBarContent button {
   width: 40px;
   height: 40px;
@@ -127,7 +135,7 @@ nav li a:visited {
 }
 
 .menuNav {
-  background: #ffc2df;
+  background: #c7e4e8;
   height: 100vh;
   width: 0;
   max-width: 290px;
@@ -151,7 +159,7 @@ nav li a:visited {
   font-size: 24px;
   padding: 20px 40px;
   text-decoration: none;
-  color: #ff5400;
+  color: #89c09f;
   text-transform: uppercase;
 }
 
@@ -180,15 +188,18 @@ img {
 .productContainer {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
+  background: #c7e4e8;
 }
 
 .productWrapper {
   display: flex;
   flex-direction: column;
   flex-basis: 16%;
-  background: #eee;
+  background: #c7e4e8;
   padding: 2%;
   margin: 15px 5px 15px 5px;
+  overflow: hidden;
 }
 
 .productImg {
@@ -196,54 +207,159 @@ img {
   width: 200px;
   height: 200px;
   align-self: center;
+  flex-grow: 1;
 }
 
 .productInfo {
   text-align: center;
+  flex-grow: 1;
 }
 
 .productInfo h3,
 h6,
 h4 {
   margin: 15px 0px 15px 0px;
+  flex-grow: 1;
 }
 
 .buttonWrapper {
   display: flex;
   flex-direction: column;
-  background-color: #eee;
+  background-color: #c7e4e8;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 }
 
 .buttonWrapper a button,
 button {
-  width: 150px;
+  color: #303030;
+  font-size: 15px;
+  width: 170px;
   height: 30px;
   margin: 5px 0px 5px 0px;
-  border: 1.5px solid #ff5400;
+  border: 1.5px solid #97c6cf;
+  border-radius: 12px;
   cursor: pointer;
+  background: #97c6cf;
+}
+.buttonWrapper a button:hover,
+button:hover {
+  opacity: 0.7;
 }
 
 /* Cart Stylings */
 
-.cartContainer {
+.cart {
   display: flex;
-  flex-direction: column;
+  align-items: start;
+  text-align: center;
+  overflow: hidden;
+  height: 100%;
 }
 
-.cartWrapper {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  background: #eee;
-  padding: 15px 15px 15px 0px;
-  margin: 15px 0px 15px 0px;
+table {
+  width: 90%;
+  margin-right: 50px;
+  margin: 10px;
+}
+
+th {
+  width: 20%;
+  font-size: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #4a5759;
+}
+
+tr {
+  vertical-align: middle;
+}
+
+td input {
+  width: 20px;
+}
+td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 30px;
 }
 
 .cartImage {
-  height: 200px;
-  width: 200px;
+  align-self: center;
+}
+
+.cartWrapper input {
+  width: 50px;
+}
+
+.cartSummaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  float: right;
+  background: #89c09f;
+  height: 100%;
+  width: 30%;
+  padding: 15px 15px 15px 0px;
+  margin: 0px 0px 15px 25px;
+  border: 0px solid;
+  border-radius: 8px;
+}
+
+.cartSummaryContainer hr {
+  width: 75%;
+  border: 1px;
+  border-top: 5px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.cartSummaryContainer label {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+}
+.termsContainer {
+  margin-top: 25px;
+  align-self: center;
+}
+
+.termsCheck {
+  width: auto;
+  margin: 0px 15px 20px 0px;
+}
+
+.priceContainer {
+  margin-top: 25px;
+}
+
+.priceContainer span:first-of-type {
+  font-size: 16px;
+  color: #303030;
+  margin: 25px 20px 10px 0px;
+}
+
+#priceSpan {
+  font-size: 24px;
+}
+.cartSummaryContainer span {
+  margin: 10px 0px 0px 0px;
+}
+
+.cartSummaryContainer span:last-of-type {
+  margin-bottom: 50px;
+  font-size: 12px;
+}
+
+.cartSummaryContainer button {
+  background: #e9b24c;
+  color: #f7f9f8;
+}
+
+.cartSummaryContainer button:disabled {
+  background: #cccccc;
+  color: #666666;
 }
 
 /* Admin Stylings */
@@ -252,17 +368,22 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+.adminContainer h1 {
+  text-align: center;
+}
+
 .adminWrapper {
   display: flex;
   flex-direction: column;
 }
 .adminWrapper select {
   text-align: center;
-  border: 1.5px solid #ff5400;
+  border: 1.5px solid #97c6cf;
   cursor: pointer;
 }
 .adminWrapper select:focus {
-  outline: 2.5px solid #ff5400;
+  outline: 2.5px solid #97c6cf;
 }
 
 .adminForm {
@@ -291,12 +412,17 @@ button {
   align-self: center;
   cursor: pointer;
   width: 100%;
-  background-color: white;
+  background-color: #97c6cf;
   padding: 25px 25px 25px 25px;
-  border: 0.5px solid #ff5400;
+  border: 0.5px solid #89c09f;
+}
+
+.Collapsible input {
+  border: 2px solid #89c09f;
 }
 
 .Collapsible span {
+  width: 100%;
   font-size: 24px;
   margin: 5px 0px 5px 0px;
 }
@@ -326,7 +452,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fac748;
+  background-color: #c7e4e8;
   height: 50px;
   clear: both;
   position: fixed;
@@ -350,6 +476,10 @@ button {
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+  .productWrapper {
+    flex: 1 24%;
+    padding: 4%;
+  }
 }
 
 @media all and (max-width: 480px) {
@@ -360,12 +490,7 @@ button {
   /* Mobile Hamburger Styling */
 
   /* Mobile Product Stylings */
-  .productContainer {
-    display: grid;
-    grid-template-columns: [col-1] auto [col-2] auto;
-    grid-column-gap: 10px;
-    margin: 0px 10px 0px 10px;
-  }
+
   .productWrapper {
     flex: 1 30%;
     padding: 5%;
@@ -374,10 +499,7 @@ button {
   /* Mobile Admin Stylings */
 
   /* Mobile Cart Styling */
-  .cartContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+
   .cartContainer h3 {
     text-align: center;
     font-size: 24px;
