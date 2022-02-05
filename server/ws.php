@@ -111,7 +111,7 @@ if (isset($_POST['form_post'])) {
             try {
 
                 if (isset($_FILES['file'])) {
-                    $uploadDir = './images';
+                    $uploadDir = './images/';
                     $errors = [];
                     $fileExtensionsPermitted = ['JPEG', 'JPG', 'PNG'];
                     $fileName = $_FILES['file']['name'];

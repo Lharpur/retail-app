@@ -5,11 +5,18 @@ import { addToCart } from '../redux/Shopping/shopping-actions'
 const SingleItem = ({ currentItem, addToCart }) => {
   return (
     <div>
-      <img src={currentItem.image} alt={currentItem.title} />
+      <img
+        src={currentItem.id.image}
+        alt={currentItem.id.title}
+        className="productImg"
+      />
       <div>
-        <p>{currentItem.title}</p>
-        <p>{currentItem.description}</p>
-        <p>{currentItem.price}</p>
+        <p>{currentItem.id.title}</p>
+        <p>{currentItem.id.artist}</p>
+        <p>{currentItem.id.price}</p>
+        <p>{currentItem.id.format}</p>
+        <p>{currentItem.id.cat}</p>
+        <p>{currentItem.id.releaseDate}</p>
         <button onClick={() => addToCart(currentItem.id)}>Add To Cart</button>
       </div>
     </div>
