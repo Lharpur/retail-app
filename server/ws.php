@@ -58,7 +58,7 @@ if (isset($_POST['form_post'])) {
             } catch (\Exception $e) {
 
                 echo json_encode(array(
-                    "error" => 'Registration Error',
+                    "Error" => 'Registration Error',
                     "Message" => $e->getMessage()
                 ));
                 return;

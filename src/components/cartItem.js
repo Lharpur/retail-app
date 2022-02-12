@@ -13,8 +13,8 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
     adjustQty(item.id, event.target.value)
   }
 
-  const saveToLocal = () => {
-    localStorage.setItem(item.id, item.title)
+  const saveToSession = () => {
+    sessionStorage.setItem(item.album_id, item.title)
     console.log('Product Saved')
   }
 
@@ -39,7 +39,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
       <td>
         <AiFillHeart
           className="saveIcon"
-          onClick={() => saveToLocal(item.album_id)}
+          onClick={() => saveToSession(item.album_id)}
         >
           Save
         </AiFillHeart>
@@ -51,7 +51,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
             Store.addNotification({
               title: 'Removed From Cart',
               message: '',
-              type: 'danger',
+              type: 'success',
               insert: 'top',
               container: 'bottom-right',
               animationIn: ['animate__animated', 'animate__fadeIn'],

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Store } from 'react-notifications-component'
 
 class AddProduct extends Component {
   constructor(props) {
@@ -96,6 +97,35 @@ class AddProduct extends Component {
 
         response.json().then(function (data) {
           console.log(data)
+          if (data.hasOwnProperty('Error')) {
+            Store.addNotification({
+              title: 'Failed To Add Product',
+              message: 'Please check fields and try again...',
+              type: 'danger',
+              insert: 'top',
+              container: 'bottom-right',
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOut'],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+              },
+            })
+          } else {
+            Store.addNotification({
+              title: 'Product Added To Database',
+              message: '',
+              type: 'success',
+              insert: 'top',
+              container: 'bottom-right',
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOut'],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+              },
+            })
+          }
         })
       })
       .catch(function (err) {
@@ -107,66 +137,76 @@ class AddProduct extends Component {
     return (
       <form onSubmit={this.handleAddProductSubmit} className="adminForm">
         <input
+          aria-label="form-field"
           type="text"
           name="title"
           onChange={this.handleTitleChange}
           placeholder="Title"
         />
         <input
+          aria-label="form-field"
           type="text"
           name="artist"
           onChange={this.handleArtistChange}
           placeholder="Artist"
         />
         <input
+          aria-label="form-field"
           type="file"
           name="image"
           onChange={this.handleImageChange}
           placeholder="File"
         />
         <input
+          aria-label="form-field"
           type="text"
           name="format"
           onChange={this.handleFormatChange}
           placeholder="Format"
         />
         <input
+          aria-label="form-field"
           type="text"
           name="cat"
           onChange={this.handleCatChange}
           placeholder="Cat"
         />
         <input
+          aria-label="form-field"
           type="text"
           name="label"
           onChange={this.handleLabelChange}
           placeholder="Label"
         />
         <input
+          aria-label="form-field"
           type="number"
           name="price"
           onChange={this.handlePriceChange}
           placeholder="Price"
         />
         <input
+          aria-label="form-field"
           type="number"
           name="releaseDate"
           onChange={this.handleReleaseDateChange}
           placeholder="Release Date"
         />
         <input
+          aria-label="form-field"
           type="number"
           name="quantity"
           onChange={this.handleQuantityChange}
           placeholder="Quantity"
         />
         <input
+          aria-label="form-field"
           type="number"
           name="copies_sold"
           onChange={this.handleCopiesSoldChange}
           placeholder="Copies Sold"
         />
-        <input type="submit" value="Submit" />
+        <input aria-label="form-field" type="submit" value="Submit" />
       </form>
     )
   }

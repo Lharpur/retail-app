@@ -1,7 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addToCart, loadCurrentItem } from '../redux/Shopping/shopping-actions'
+import {
+  addToCart,
+  addToSession,
+  loadCurrentItem,
+} from '../redux/Shopping/shopping-actions'
 import { Store } from 'react-notifications-component'
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
@@ -45,6 +49,7 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (id) => dispatch(addToCart(id)),
+    addToSession: (id) => dispatch(addToSession(id)),
     loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
   }
 }

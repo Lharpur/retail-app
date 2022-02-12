@@ -7,7 +7,7 @@
 
 html,
 body {
-  background: #c7e4e8;
+  background: #292a44;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -38,7 +38,7 @@ form {
 }
 input {
   width: 90%;
-  background-color: #c7e4e8;
+  background-color: #fefffe;
   text-align: center;
   border: 1.5px solid #97c6cf;
   cursor: pointer;
@@ -56,7 +56,7 @@ nav li {
 }
 
 .menuNav a {
-  color: #12134e;
+  color: #424761;
   font-size: 24px;
   text-decoration: none;
   /* Underline Colour Animation */
@@ -80,7 +80,7 @@ nav li {
 }
 
 nav li a:visited {
-  color: #12134e;
+  color: #424761;
 }
 
 .hamburger {
@@ -90,7 +90,7 @@ nav li a:visited {
 .NavBarContent {
   display: flex;
   align-items: center;
-  background-color: #c7e4e8;
+  background-color: #ff556d;
   text-align: center;
   position: relative;
 }
@@ -107,7 +107,7 @@ nav li a:visited {
 .navLogo p {
   font-size: 22px;
   font-weight: bold;
-  color: #89c09f;
+  color: #ffffff;
   text-decoration: none;
   margin-left: 25px;
 }
@@ -116,7 +116,7 @@ nav li a:visited {
   margin-left: auto;
   margin-right: 10px;
   font-size: 25px;
-  color: #89c09f;
+  color: #ffffff;
 }
 
 .cart-icon:hover {
@@ -135,7 +135,7 @@ nav li a:visited {
 }
 
 .menuNav {
-  background: #c7e4e8;
+  background: #1597b0;
   height: 100vh;
   width: 0;
   max-width: 290px;
@@ -159,7 +159,7 @@ nav li a:visited {
   font-size: 24px;
   padding: 20px 40px;
   text-decoration: none;
-  color: #89c09f;
+  color: #424761;
   text-transform: uppercase;
 }
 
@@ -189,14 +189,14 @@ img {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  background: #c7e4e8;
+  background: #fefffe;
 }
 
 .productWrapper {
   display: flex;
   flex-direction: column;
   flex-basis: 16%;
-  background: #c7e4e8;
+  background: #fefffe;
   padding: 2%;
   margin: 15px 5px 15px 5px;
   overflow: hidden;
@@ -225,7 +225,7 @@ h4 {
 .buttonWrapper {
   display: flex;
   flex-direction: column;
-  background-color: #c7e4e8;
+  background-color: #fefffe;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
@@ -233,7 +233,7 @@ h4 {
 
 .buttonWrapper a button,
 button {
-  color: #303030;
+  color: #424761;
   font-size: 15px;
   width: 170px;
   height: 30px;
@@ -268,7 +268,7 @@ th {
   width: 20%;
   font-size: 20px;
   font-family: 'Roboto Condensed', sans-serif;
-  color: #4a5759;
+  color: #424761;
 }
 
 tr {
@@ -336,7 +336,7 @@ td {
 
 .priceContainer span:first-of-type {
   font-size: 16px;
-  color: #303030;
+  color: #424761;
   margin: 25px 20px 10px 0px;
 }
 
@@ -354,12 +354,12 @@ td {
 
 .cartSummaryContainer button {
   background: #e9b24c;
-  color: #f7f9f8;
+  color: #424761;
 }
 
 .cartSummaryContainer button:disabled {
   background: #cccccc;
-  color: #666666;
+  color: #424761;
 }
 
 /* Admin Stylings */
@@ -452,7 +452,7 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c7e4e8;
+  background-color: #fefffe;
   height: 50px;
   clear: both;
   position: fixed;

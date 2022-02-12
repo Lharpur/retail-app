@@ -16,6 +16,15 @@ export const addToCart = (itemID) => {
   }
 }
 
+export const addToSession = (itemID) => {
+  return {
+    type: actionTypes.ADD_TO_SESSION,
+    payload: {
+      id: itemID,
+    },
+  }
+}
+
 export const removeFromCart = (itemID) => {
   return {
     type: actionTypes.REMOVE_FROM_CART,

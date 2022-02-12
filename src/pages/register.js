@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Store } from 'react-notifications-component'
 
 class Register extends Component {
   constructor(props) {
@@ -64,6 +65,36 @@ class Register extends Component {
 
       response.json().then(function (data) {
         console.log(data)
+        if (data.hasOwnProperty('Error')) {
+          Store.addNotification({
+            title: 'Registration Failed!',
+            message: 'Check input fields and try again...',
+            type: 'danger',
+            insert: 'top',
+            container: 'bottom-right',
+            animationIn: ['animate__animated', 'animate__fadeIn'],
+            animationOut: ['animate__animated', 'animate__fadeOut'],
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+            },
+          })
+        } else {
+          Store.addNotification({
+            title: 'Registration Successful',
+            message: 'Welcome To Brand Name...',
+            type: 'success',
+            insert: 'top',
+            container: 'bottom-right',
+            animationIn: ['animate__animated', 'animate__fadeIn'],
+            animationOut: ['animate__animated', 'animate__fadeOut'],
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+            },
+          })
+          setTimeout(() => (window.location.href = '/login'), 5000)
+        }
       })
     })
   }

@@ -51,11 +51,11 @@ const Navbar = ({ cart }) => {
           <button onClick={handleToggle}>
             {navbarOpen ? (
               <MdClose
-                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
+                style={{ color: ' #FFFFFF', width: '30px', height: '30px' }}
               />
             ) : (
               <FiMenu
-                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
+                style={{ color: ' #FFFFFF', width: '30px', height: '30px' }}
               />
             )}
           </button>
@@ -90,19 +90,21 @@ const Navbar = ({ cart }) => {
             <FaShoppingCart />
             {cartCount}
           </Link>
-          <button onClick={handleToggle}>
+          <button type="button" onClick={handleToggle}>
             {navbarOpen ? (
               <MdClose
+                role="button"
                 style={{ color: ' #89C09F', width: '30px', height: '30px' }}
               />
             ) : (
               <FiMenu
+                role="button"
                 style={{ color: ' #89C09F', width: '30px', height: '30px' }}
               />
             )}
           </button>
         </div>
-        <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
+        <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`} role="button">
           <Link to="/product" onClick={() => closeMenu()}>
             Products
           </Link>
