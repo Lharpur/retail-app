@@ -14,7 +14,7 @@ import NotFound from '../pages/notFound'
 import { connect } from 'react-redux'
 import PrivateWrapper from './PrivateRoute'
 
-const Header = () => {
+const Header = (currentItem) => {
   return (
     <BrowserRouter>
       <Navbar />
@@ -23,7 +23,6 @@ const Header = () => {
         <Route path="/product" element={<Products />} />
         <Route path="/product/:id" element={<SingleItem />} />
         <Route path="/about" element={<About />} />
-        {/* Make admin route a protected route */}
         <Route element={<PrivateWrapper />}>
           <Route path="/admin" element={<Admin />} />
         </Route>

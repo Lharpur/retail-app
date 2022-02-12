@@ -8,19 +8,13 @@ const SingleItem = ({ currentItem, addToCart }) => {
   const navigate = useNavigate()
   return (
     <div className="currentItemWrapper">
-      <img
-        src={`.${currentItem.id.image}`}
-        alt={currentItem.id.title}
-        className="productImg"
-      />
-      <div>
-        <p>{currentItem.id.title}</p>
-        <p>{currentItem.id.album_id}</p>
-        <p>{currentItem.id.artist}</p>
-        <p>{currentItem.id.price}</p>
-        <p>{currentItem.id.format}</p>
-        <p>{currentItem.id.cat}</p>
-        <p>{currentItem.id.releaseDate}</p>
+      <div className="currentItemImg">
+        <img src={`.${currentItem.id.image}`} alt={currentItem.id.title} />
+      </div>
+      <div className="currentItemInfo">
+        <h2>{currentItem.id.title}</h2>
+        <h3>{currentItem.id.artist}</h3>
+        <h3>${currentItem.id.price}</h3>
         <button onClick={() => navigate(-1)}>Return</button>
         <button
           onClick={() =>

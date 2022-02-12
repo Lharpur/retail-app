@@ -1,10 +1,10 @@
 /* Imports */
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Condensed:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;900&display=swap');
 /* Body Styling */
 
-html, body {
+html,
+body {
   background: #292a44;
   display: flex;
   flex-direction: column;
@@ -14,16 +14,26 @@ html, body {
   padding: 0;
 }
 
-.App, #root {
+.App,
+#root {
   height: 100%;
 }
 
 /* General Font Styling */
 
 * {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: lighter;
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #1b444f;
 }
 
 /* General Input Stylings */
@@ -60,8 +70,10 @@ nav li {
   font-size: 24px;
   text-decoration: none;
   /* Underline Colour Animation */
-  background-image: linear-gradient(#f3b888, #f3b888), /* Starting Underline Colour Animation */
-  linear-gradient(rgb(233, 178, 0.3), rgb(233, 178, 0.3)), linear-gradient(#e58f65, #e58f65);
+  background-image: linear-gradient(#f3b888, #f3b888),
+    /* Starting Underline Colour Animation */
+      linear-gradient(rgb(233, 178, 0.3), rgb(233, 178, 0.3)),
+    linear-gradient(#e58f65, #e58f65);
   background-size: 20px 3px, 100% 3px, 0 3px;
   background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -173,10 +185,49 @@ nav li a:visited {
 
 /* Landing Page */
 
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 50%;
+  text-align: center;
+}
+
 .landing h1 {
-  color: #F0D1CD;
-  font-weight: bold;
-  font-size: 54px;
+  color: #f0d1cd;
+  font-weight: 700;
+  font-size: 52px;
+  margin: 0px 50px 0px 0px;
+}
+
+.landing h1 span {
+  color: #ff556d;
+}
+
+.landing h2 span {
+  color: #1597b0;
+}
+
+.landing h2 {
+  color: #f0d1cd;
+  font-weight: 700;
+  font-size: 42px;
+  margin: 0px 0px 40px 50px;
+}
+
+.landing a {
+  background-color: #ff556d;
+  color: #2f3f63;
+  font-weight: 500;
+  width: 15%;
+  text-align: center;
+  border: 1.5px solid #ff556d;
+  border-radius: 9px;
+  cursor: pointer;
+  margin: 5px 0px 5px 0px;
+  padding: 15px 15px 15px 15px;
 }
 
 /* Product Stylings */
@@ -191,7 +242,7 @@ nav li a:visited {
 .productWrapper {
   display: flex;
   flex-direction: column;
-  flex-basis: 16%;
+  flex-basis: 21%;
   background: #fefffe;
   padding: 2%;
   margin: 15px 5px 15px 5px;
@@ -211,7 +262,10 @@ nav li a:visited {
   flex-grow: 1;
 }
 
-.productInfo h3, h6, h4 {
+.productInfo h3,
+h6,
+h4 {
+  font-weight: 300;
   margin: 15px 0px 15px 0px;
   flex-grow: 1;
 }
@@ -225,22 +279,62 @@ nav li a:visited {
   flex-grow: 1;
 }
 
-.buttonWrapper a button, button {
+.buttonWrapper a button,
+button {
   color: #424761;
   font-size: 15px;
+  font-weight: 500;
   width: 170px;
   height: 30px;
   margin: 5px 0px 5px 0px;
-  border: 1.5px solid #97c6cf;
+  border: 1.5px solid #ff556d;
   border-radius: 12px;
   cursor: pointer;
-  background: #97c6cf;
+  background: #ff556d;
 }
 
-.buttonWrapper a button:hover, button:hover {
+.buttonWrapper a button:hover,
+button:hover {
   opacity: 0.7;
 }
 
+/* Single Item Styling */
+
+.currentItemWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 50%;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.currentItemImg img {
+  height: 500px;
+  width: 500px;
+  margin: 50px 0px 0px 50px;
+}
+
+.currentItemInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.currentItemInfo h2,
+h3 {
+  color: #dfe4e5;
+  font-weight: 300;
+}
+
+.currentItemInfo h3 {
+  margin: 0px 0px 25px 0px;
+}
+
+.currentItemInfo h2 {
+  margin: 15px 0px 0px 0px;
+}
 /* Cart Stylings */
 
 .cart {
@@ -279,6 +373,8 @@ td {
 }
 
 .cartImage {
+  width: 300px;
+  height: 300px;
   align-self: center;
 }
 
