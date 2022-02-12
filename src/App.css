@@ -2,11 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:wght@100&display=swap');
-
 /* Body Styling */
 
-html,
-body {
+html, body {
   background: #292a44;
   display: flex;
   flex-direction: column;
@@ -16,8 +14,7 @@ body {
   padding: 0;
 }
 
-.App,
-#root {
+.App, #root {
   height: 100%;
 }
 
@@ -30,12 +27,14 @@ body {
 }
 
 /* General Input Stylings */
+
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 input {
   width: 90%;
   background-color: #fefffe;
@@ -45,6 +44,7 @@ input {
   margin: 5px 0px 5px 0px;
   padding: 15px 15px 15px 15px;
 }
+
 input:focus {
   outline: 2.5px solid #97c6cf;
 }
@@ -60,10 +60,8 @@ nav li {
   font-size: 24px;
   text-decoration: none;
   /* Underline Colour Animation */
-  background-image: linear-gradient(#f3b888, #f3b888),
-    /* Starting Underline Colour Animation */
-      linear-gradient(rgb(233, 178, 0.3), rgb(233, 178, 0.3)),
-    linear-gradient(#e58f65, #e58f65);
+  background-image: linear-gradient(#f3b888, #f3b888), /* Starting Underline Colour Animation */
+  linear-gradient(rgb(233, 178, 0.3), rgb(233, 178, 0.3)), linear-gradient(#e58f65, #e58f65);
   background-size: 20px 3px, 100% 3px, 0 3px;
   background-position: calc(20px * -1) 100%, 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -173,14 +171,12 @@ nav li a:visited {
 
 /* Image Styling */
 
-img {
-  height: 100px;
-  width: 100px;
-}
+/* Landing Page */
 
-.icon {
-  height: 30px;
-  width: 30px;
+.landing h1 {
+  color: #F0D1CD;
+  font-weight: bold;
+  font-size: 54px;
 }
 
 /* Product Stylings */
@@ -215,9 +211,7 @@ img {
   flex-grow: 1;
 }
 
-.productInfo h3,
-h6,
-h4 {
+.productInfo h3, h6, h4 {
   margin: 15px 0px 15px 0px;
   flex-grow: 1;
 }
@@ -231,8 +225,7 @@ h4 {
   flex-grow: 1;
 }
 
-.buttonWrapper a button,
-button {
+.buttonWrapper a button, button {
   color: #424761;
   font-size: 15px;
   width: 170px;
@@ -243,8 +236,8 @@ button {
   cursor: pointer;
   background: #97c6cf;
 }
-.buttonWrapper a button:hover,
-button:hover {
+
+.buttonWrapper a button:hover, button:hover {
   opacity: 0.7;
 }
 
@@ -278,6 +271,7 @@ tr {
 td input {
   width: 20px;
 }
+
 td {
   vertical-align: middle;
   text-align: center;
@@ -320,6 +314,7 @@ td {
   font-size: 14px;
   text-align: center;
 }
+
 .termsContainer {
   margin-top: 25px;
   align-self: center;
@@ -343,6 +338,7 @@ td {
 #priceSpan {
   font-size: 24px;
 }
+
 .cartSummaryContainer span {
   margin: 10px 0px 0px 0px;
 }
@@ -377,11 +373,13 @@ td {
   display: flex;
   flex-direction: column;
 }
+
 .adminWrapper select {
   text-align: center;
   border: 1.5px solid #97c6cf;
   cursor: pointer;
 }
+
 .adminWrapper select:focus {
   outline: 2.5px solid #97c6cf;
 }
@@ -432,6 +430,7 @@ td {
 .registrationContainer input {
   width: 30%;
 }
+
 .registrationContainer input:last-of-type {
   width: 20%;
 }
@@ -441,6 +440,7 @@ td {
 .loginContainer input {
   width: 30%;
 }
+
 .loginContainer input:last-of-type {
   width: 20%;
 }
@@ -484,22 +484,15 @@ td {
 
 @media all and (max-width: 480px) {
   /* Mobile General Stylings */
-
   /* Mobile Nav Stylings */
-
   /* Mobile Hamburger Styling */
-
   /* Mobile Product Stylings */
-
   .productWrapper {
     flex: 1 30%;
     padding: 5%;
   }
-
   /* Mobile Admin Stylings */
-
   /* Mobile Cart Styling */
-
   .cartContainer h3 {
     text-align: center;
     font-size: 24px;
