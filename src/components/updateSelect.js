@@ -1,82 +1,73 @@
-import React, { Component } from "react";
+import React from 'react'
 
-class UpdateSelect extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-      selectedProduct: [],
-    };
-    this.handleUpdateAlbumFetch = this.handleUpdateAlbumFetch.bind(this);
-  }
-
-  componentDidMount() {
-    fetch("http://localhost/retail-app/server/ws.php?data_fetch=selectPopulate")
-      .then((response) => response.json())
-      .then((response) => {
-        this.setState({
-          products: response,
-        });
-      })
-      .catch((error) => console.log(error));
-  }
-
-  handleTitleChange(event) {
-    this.setState({
-      title: event.target.value,
-    });
-  }
-
-  handleUpdateAlbumFetch = (event) => {
-    event.preventDefault();
-    const self = this;
-
-    var data = new FormData();
-    data.append("form_post", "updatePopulate");
-    data.append("title", this.state.title);
-
-    fetch(
-      "http://localhost/retail-app/server/ws.php?form_post=updatePopulate",
-      {
-        method: "POST",
-        body: data,
-      }
-    )
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log("Status Code Error:" + response.status);
-          return;
-        }
-        response.json().then(function (data) {
-          self.setState({ selectedProduct: data });
-        });
-      })
-      .catch(function (err) {
-        console.log("Error", err);
-      });
-  };
-
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleUpdateAlbumFetch}>
-          <select name="" id="" onChange={this.handleTitleChange}>
-            <option value="" defaultValue="Select An Album">
-              Select an album
-            </option>
-            {this.state.products.map(function (response, index) {
-              return (
-                <option key={index} value={response.title} defaultValue>
-                  {response.title}
-                </option>
-              );
-            })}
-          </select>
-          <input type="submit" value="Update" />
-        </form>
-      </div>
-    );
-  }
+const updateForm = (props) => {
+  ;<form
+    onSubmit={this.handleUpdateAlbumSubmit}
+    className="adminForm"
+    key={this.state.album_id}
+  >
+    <input
+      type="text"
+      name="title"
+      onChange={this.handleTitle2Change}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="text"
+      name="artist"
+      onChange={this.handleArtistChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="text"
+      name="image"
+      onChange={this.handleImageChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="text"
+      name="format"
+      onChange={this.handleFormatChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="text"
+      name="cat"
+      onChange={this.handleCatChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="text"
+      name="label"
+      onChange={this.handleLabelChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="number"
+      name="price"
+      onChange={this.handlePriceChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="number"
+      name="releaseDate"
+      onChange={this.handleReleasedateChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="number"
+      name="quantity"
+      onChange={this.handleQuantityChange}
+      defaultValue={this.state.title}
+    />
+    <input
+      type="number"
+      name="copies_sold"
+      onChange={this.handleCopiesSoldChange}
+      defaultValue={this.state.title}
+    />
+    <input type="submit" value="Update Album" />
+  </form>
 }
 
-export default UpdateSelect;
+export default updateForm

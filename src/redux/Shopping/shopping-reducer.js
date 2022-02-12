@@ -15,17 +15,17 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       }
     case actionTypes.ADD_TO_CART:
       const item = state.products.find(
-        (product) => product.id === action.payload.id,
+        (product) => product.album_id === action.payload.id,
       )
       const inCart = state.cart.find((item) =>
-        item.id === action.payload.id ? true : false,
+        item.album_id === action.payload.id ? true : false,
       )
       return {
         //Ternary Operators
         ...state,
         cart: inCart
           ? state.cart.map((item) =>
-              item.id === action.payload.id
+              item.album_id === action.payload.id
                 ? { ...item, qty: item.qty + 1 }
                 : item,
             )
@@ -34,13 +34,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     case actionTypes.REMOVE_FROM_CART:
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload.id),
+        cart: state.cart.filter((item) => item.album_id !== action.payload.id),
       }
     case actionTypes.ADJUST_QTY:
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.id === action.payload.id
+          item.album_id === action.payload.id
             ? { ...item, qty: action.payload.qty }
             : item,
         ),

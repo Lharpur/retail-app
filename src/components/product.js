@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addToCart, loadCurrentItem } from '../redux/Shopping/shopping-actions'
+import { Store } from 'react-notifications-component'
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
@@ -17,7 +18,26 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
         <Link to={`/product/${product.album_id}`}>
           <button onClick={() => loadCurrentItem(product)}>View Item</button>
         </Link>
-        <button onClick={() => addToCart(product.id)}>Add To Cart</button>
+        <button
+          onClick={() =>
+            addToCart(product.album_id) &&
+            Store.addNotification({
+              title: 'Added To Cart',
+              message: '',
+              type: 'success',
+              insert: 'top',
+              container: 'bottom-right',
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOut'],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+              },
+            })
+          }
+        >
+          Add To Cart
+        </button>
       </div>
     </div>
   )

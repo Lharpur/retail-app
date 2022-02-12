@@ -1,6 +1,7 @@
 // need to make default value exist in select options
 
 import React, { Component } from 'react'
+import { Store } from 'react-notifications-component'
 
 class DeleteProduct extends Component {
   constructor(props) {
@@ -49,6 +50,19 @@ class DeleteProduct extends Component {
 
         response.json().then(function (data) {
           console.log(data)
+          Store.addNotification({
+            title: 'Product Deleted From Database!',
+            message: '',
+            type: 'success',
+            insert: 'top',
+            container: 'bottom-right',
+            animationIn: ['animate__animated', 'animate__fadeIn'],
+            animationOut: ['animate__animated', 'animate__fadeOut'],
+            dismiss: {
+              duration: 3000,
+              onScreen: true,
+            },
+          })
         })
       })
       .catch(function (err) {

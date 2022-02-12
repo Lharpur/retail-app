@@ -10,6 +10,7 @@ import Login from '../pages/login'
 import Cart from '../components/cart'
 import Products from './products'
 import SingleItem from './singleItem'
+import NotFound from '../pages/notFound'
 import { connect } from 'react-redux'
 import PrivateWrapper from './PrivateRoute'
 
@@ -29,6 +30,7 @@ const Header = () => {
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

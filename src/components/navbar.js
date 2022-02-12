@@ -61,37 +61,19 @@ const Navbar = ({ cart }) => {
           </button>
         </div>
         <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
-          <Link
-            activeclassname="activeNavLink"
-            to="/product"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/product" onClick={() => closeMenu()}>
             Products
           </Link>
           {/* Mobile About Item */}
-          <Link
-            activeclassname="activeNavLink"
-            to="/about"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/about" onClick={() => closeMenu()}>
             About
           </Link>
           {/* Mobile Admin Item */}
-          <Link
-            activeclassname="activeNavLink"
-            to="/admin"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/admin" onClick={() => closeMenu()}>
             Admin
           </Link>
           {/* Mobile Logout Item */}
-          <Logout className="mobile-nav-link" />
+          <Logout />
         </ul>
       </nav>
     )
@@ -121,57 +103,25 @@ const Navbar = ({ cart }) => {
           </button>
         </div>
         <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
-          <Link
-            activeclassname="activeNavLink"
-            to="/product"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/product" onClick={() => closeMenu()}>
             Products
           </Link>
           {/* Mobile About Item */}
-          <Link
-            activeclassname="activeNavLink"
-            to="/about"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/about" onClick={() => closeMenu()}>
             About
           </Link>
           {/* Mobile Admin Item */}
-          <Link
-            activeclassname="activeNavLink"
-            to="/admin"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/admin" onClick={() => closeMenu()}>
             Admin
           </Link>
           {/* Mobile Register Item */}
-          <Link
-            activeclassname="activeNavLink"
-            to="/register"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/register" onClick={() => closeMenu()}>
             Register
           </Link>
           {/* Mobile Login Item */}
-          <Link
-            activeclassname="activeNavLink"
-            to="/login"
-            className="mobile-nav-link"
-            onClick={() => closeMenu()}
-            exact
-          >
+          <Link to="/login" onClick={() => closeMenu()}>
             Login
           </Link>
-          {/* Mobile Logout Item */}
-          <Logout className="mobile-nav-link" />
         </ul>
       </nav>
     )

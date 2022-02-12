@@ -6,16 +6,6 @@ class UpdateProduct extends Component {
     this.state = {
       products: [],
       selectedProduct: [],
-      title: '',
-      artist: '',
-      image: '',
-      format: '',
-      cat: '',
-      label: '',
-      price: '',
-      releaseDate: '',
-      quantity: '',
-      copies_sold: '',
     }
     this.handleUpdateAlbumFetch = this.handleUpdateAlbumFetch.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -38,62 +28,61 @@ class UpdateProduct extends Component {
         this.setState({
           products: response,
         })
-        console.log(this.state.products)
       })
       .catch((error) => console.log(error))
   }
 
-  handleTitleChange = async (event) => {
+  handleTitleChange = (event) => {
     this.setState({
       title: event.target.value,
     })
   }
-  handleTitle2Change = async (event) => {
+  handleTitle2Change = (event) => {
     this.setState({
       title: event.target.value,
     })
   }
-  handleArtistChange = async (event) => {
+  handleArtistChange = (event) => {
     this.setState({
       artist: event.target.value,
     })
   }
-  handleImageChange = async (event) => {
+  handleImageChange = (event) => {
     this.setState({
       image: event.target.value,
     })
   }
-  handleFormatChange = async (event) => {
+  handleFormatChange = (event) => {
     this.setState({
       format: event.target.value,
     })
   }
-  handleCatChange = async (event) => {
+  handleCatChange = (event) => {
     this.setState({
       cat: event.target.value,
     })
   }
-  handleLabelChange = async (event) => {
+  handleLabelChange = (event) => {
     this.setState({
       label: event.target.value,
     })
   }
-  handlePriceChange = async (event) => {
+  handlePriceChange = (event) => {
     this.setState({
       price: event.target.value,
     })
   }
-  handleReleaseDateChange = async (event) => {
+  handleReleaseDateChange = (event) => {
     this.setState({
       releaseDate: event.target.value,
     })
   }
-  handleQuantityChange = async (event) => {
+  handleQuantityChange = (event) => {
     this.setState({
       quantity: event.target.value,
     })
   }
-  handleCopiesSoldChange = async (event) => {
+  handleCopiesSoldChange = (event) => {
     this.setState({
       copies_sold: event.target.value,
     })
@@ -180,82 +169,141 @@ class UpdateProduct extends Component {
           </select>
           <input type="submit" value="Update" />
         </form>
-        {/* <div>
-          {this.state.selectedProduct.map(function (response, index) {
-            return (
-              <form
-                onSubmit={this.handleUpdateAlbumSubmit}
-                className="adminForm"
-                key={index}
-              >
+        {this.state.selectedProduct.map(function (response, index) {
+          return (
+            <div key={index}>
+              <form>
                 <input
                   type="text"
-                  name="title"
-                  onChange={this.handleTitle2Change}
                   defaultValue={response.title}
+                  // onChange={this.handleTitle2Change}
                 />
                 <input
                   type="text"
-                  name="artist"
-                  onChange={this.handleArtistChange}
                   defaultValue={response.artist}
+                  // onChange={this.handleArtistChange}
                 />
                 <input
                   type="text"
-                  name="image"
-                  onChange={this.handleImageChange}
                   defaultValue={response.image}
+                  // onChange={this.handleImageChange}
                 />
                 <input
                   type="text"
-                  name="format"
-                  onChange={this.handleFormatChange}
                   defaultValue={response.format}
+                  // onChange={this.handleFormatChange}
                 />
                 <input
                   type="text"
-                  name="cat"
-                  onChange={this.handleCatChange}
                   defaultValue={response.cat}
+                  // onChange={this.handleCatChange}
                 />
                 <input
                   type="text"
-                  name="label"
-                  onChange={this.handleLabelChange}
                   defaultValue={response.label}
+                  // onChange={this.handleLabelChange}
                 />
                 <input
                   type="number"
-                  name="price"
-                  onChange={this.handlePriceChange}
                   defaultValue={response.price}
+                  // onChange={this.handlePriceChange}
                 />
                 <input
                   type="number"
-                  name="releaseDate"
-                  onChange={this.handleReleasedateChange}
                   defaultValue={response.releaseDate}
+                  // onChange={this.handleReleasedateChange}
                 />
                 <input
                   type="number"
-                  name="quantity"
-                  onChange={this.handleQuantityChange}
                   defaultValue={response.quantity}
+                  // onChange={this.handleQuantityChange}
                 />
                 <input
                   type="number"
-                  name="copies_sold"
-                  onChange={this.handleCopiesSoldChange}
                   defaultValue={response.copies_sold}
+                  // onChange={this.handleCopiesSoldChange}
                 />
-                <input type="submit" value="Update Album" />
+                <input type="submit" value="Update" />
               </form>
-            )
-          })}
-        </div> */}
+            </div>
+          )
+        })}
       </div>
     )
   }
 }
 
 export default UpdateProduct
+
+// {this.state.selectedProduct.map(function (response, index) {
+//   return (
+//     <form
+//       onSubmit={this.handleUpdateAlbumSubmit}
+//       className="adminForm"
+//       key={index}
+//     >
+//       <input
+//         type="text"
+//         name="title"
+//         onChange={this.handleTitle2Change}
+//         defaultValue={response.title}
+//       />
+
+//       <input
+//         type="text"
+//         name="artist"
+//         onChange={this.handleArtistChange}
+//         defaultValue={response.artist}
+//       />
+//       <input
+//         type="text"
+//         name="image"
+//         onChange={this.handleImageChange}
+//         defaultValue={response.image}
+//       />
+//       <input
+//         type="text"
+//         name="format"
+//         onChange={this.handleFormatChange}
+//         defaultValue={response.format}
+//       />
+//       <input
+//         type="text"
+//         name="cat"
+//         onChange={this.handleCatChange}
+//         defaultValue={response.cat}
+//       />
+//       <input
+//         type="text"
+//         name="label"
+//         onChange={this.handleLabelChange}
+//         defaultValue={response.label}
+//       />
+//       <input
+//         type="number"
+//         name="price"
+//         onChange={this.handlePriceChange}
+//         defaultValue={response.price}
+//       />
+//       <input
+//         type="number"
+//         name="releaseDate"
+//         onChange={this.handleReleasedateChange}
+//         defaultValue={response.releaseDate}
+//       />
+//       <input
+//         type="number"
+//         name="quantity"
+//         onChange={this.handleQuantityChange}
+//         defaultValue={response.quantity}
+//       />
+//       <input
+//         type="number"
+//         name="copies_sold"
+//         onChange={this.handleCopiesSoldChange}
+//         defaultValue={response.copies_sold}
+//       />
+//       <input type="submit" value="Update Album" />
+//     </form>
+//   )
+// })}

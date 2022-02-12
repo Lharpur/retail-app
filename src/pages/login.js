@@ -1,6 +1,7 @@
 // Login function works but throws Json Error
 
 import React, { Component } from 'react'
+import { Store } from 'react-notifications-component'
 
 class Login extends Component {
   constructor(props) {
@@ -44,14 +45,39 @@ class Login extends Component {
 
         response.json().then(function (data) {
           console.log(data)
-
-          if (data.hasOwnProperty('error')) {
+          if (data.hasOwnProperty('Error')) {
             console.log('login failed')
             localStorage.setItem('loggedIn', 'false')
+            Store.addNotification({
+              title: 'Login Failed!',
+              message: 'Email/Password Incorrect',
+              type: 'danger',
+              insert: 'top',
+              container: 'bottom-right',
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOut'],
+              dismiss: {
+                duration: 5000,
+                onScreen: true,
+              },
+            })
           } else {
             console.log('login successful')
             localStorage.setItem('loggedIn', 'true')
-            window.location.href = '/'
+            Store.addNotification({
+              title: 'Login Successful!',
+              message: 'Redirecting...',
+              type: 'success',
+              insert: 'top',
+              container: 'bottom-right',
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOut'],
+              dismiss: {
+                duration: 5000,
+                onScreen: true,
+              },
+            })
+            setTimeout(() => (window.location.href = '/'), 5000)
           }
         })
       })

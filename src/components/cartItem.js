@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { adjustQty, removeFromCart } from '../redux/Shopping/shopping-actions'
+import { Store } from 'react-notifications-component'
 
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty)
@@ -36,12 +37,32 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
         <h4>${item.price}</h4>
       </td>
       <td>
-        <AiFillHeart className="saveIcon" onClick={() => saveToLocal(item.id)}>
+        <AiFillHeart
+          className="saveIcon"
+          onClick={() => saveToLocal(item.album_id)}
+        >
           Save
         </AiFillHeart>
       </td>
       <td>
-        <BsFillTrashFill onClick={() => removeFromCart(item.id)}>
+        <BsFillTrashFill
+          onClick={() =>
+            removeFromCart(item.album_id) &&
+            Store.addNotification({
+              title: 'Removed From Cart',
+              message: '',
+              type: 'danger',
+              insert: 'top',
+              container: 'bottom-right',
+              animationIn: ['animate__animated', 'animate__fadeIn'],
+              animationOut: ['animate__animated', 'animate__fadeOut'],
+              dismiss: {
+                duration: 3000,
+                onScreen: true,
+              },
+            })
+          }
+        >
           Remove From Cart
         </BsFillTrashFill>
       </td>

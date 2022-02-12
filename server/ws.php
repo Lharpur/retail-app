@@ -109,11 +109,10 @@ if (isset($_POST['form_post'])) {
 
         case 'addAlbum':
             try {
-
                 if (isset($_FILES['file'])) {
-                    $uploadDir = './images/';
+                    $uploadDir = '../images';
                     $errors = [];
-                    $fileExtensionsPermitted = ['JPEG', 'JPG', 'PNG'];
+                    $fileExtensionsPermitted = ['JPEG', 'JPG', 'PNG', 'jpeg', 'jpg', 'png'];
                     $fileName = $_FILES['file']['name'];
                     $fileSize = $_FILES['file']['size'];
                     $fileTmpName = $_FILES['file']['tmp_name'];
