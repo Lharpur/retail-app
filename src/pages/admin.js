@@ -1,6 +1,5 @@
 import React from 'react'
 import AddProduct from '../components/addProduct'
-import UpdateProduct from '../components/updateProduct'
 import DeleteProduct from '../components/deleteProduct'
 import Collapsible from 'react-collapsible'
 
@@ -16,11 +15,6 @@ const admin = () => {
       <Collapsible trigger="Delete Product" className="adminCollapse">
         <div className="adminWrapper">
           <DeleteProduct />
-        </div>
-      </Collapsible>
-      <Collapsible trigger="Update Product" className="adminCollapse">
-        <div className="adminWrapper">
-          <UpdateProduct />
         </div>
       </Collapsible>
     </div>

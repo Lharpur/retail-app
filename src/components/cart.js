@@ -32,7 +32,6 @@ const Cart = ({ cart }) => {
             <th>Product</th>
             <th>Quantity</th>
             <th>Price</th>
-            <th>Save</th>
             <th>Remove</th>
           </tr>
         </thead>

@@ -82,7 +82,7 @@ class Register extends Component {
         } else {
           Store.addNotification({
             title: 'Registration Successful',
-            message: 'Welcome To Brand Name...',
+            message: 'Welcome To Heliacal Records...',
             type: 'success',
             insert: 'top',
             container: 'bottom-right',

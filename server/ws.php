@@ -186,7 +186,7 @@ if (isset($_POST['form_post'])) {
                 } else {
                     throw new exception("Error - Issue with quantity");
                 }
-                if (!empty($_POST['copies_sold'])) {
+                if (empty($_POST['copies_sold']) + !empty($_POST['copies_sold'])) {
                     $copies_sold = $sqlaction->inputFilter(($_POST['copies_sold']));
                 } else {
                     throw new exception("Error - Issue with copies sold");

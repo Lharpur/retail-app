@@ -13,11 +13,6 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
     adjustQty(item.id, event.target.value)
   }
 
-  const saveToSession = () => {
-    sessionStorage.setItem(item.album_id, item.title)
-    console.log('Product Saved')
-  }
-
   return (
     <tr className="cartWrapper">
       <td>
@@ -35,14 +30,6 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
       </td>
       <td>
         <h4>${item.price}</h4>
-      </td>
-      <td>
-        <AiFillHeart
-          className="saveIcon"
-          onClick={() => saveToSession(item.album_id)}
-        >
-          Save
-        </AiFillHeart>
       </td>
       <td>
         <BsFillTrashFill

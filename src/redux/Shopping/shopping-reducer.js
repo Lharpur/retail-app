@@ -40,7 +40,7 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.album_id === action.payload.id
+          item.id === action.payload.id
             ? { ...item, qty: action.payload.qty }
             : item,
         ),

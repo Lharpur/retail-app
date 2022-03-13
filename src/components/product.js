@@ -14,6 +14,7 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
       <img className="productImg" src={product.image} alt={product.title} />
       <div className="productInfo">
         <h3>{product.title}</h3>
+        <h4>{product.artist}</h4>
         <h4>${product.price}</h4>
       </div>
       <div className="buttonWrapper">

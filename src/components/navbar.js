@@ -41,7 +41,7 @@ const Navbar = ({ cart }) => {
         <div className="NavBarContent">
           {/* Home Icon */}
           <Link to="/" className="navLogo">
-            <p>Brand Name</p>
+            <p>Heliacal</p>
           </Link>
 
           <Link to="/cart" className="cart-icon">
@@ -51,11 +51,11 @@ const Navbar = ({ cart }) => {
           <button onClick={handleToggle}>
             {navbarOpen ? (
               <MdClose
-                style={{ color: ' #FFFFFF', width: '30px', height: '30px' }}
+                style={{ color: '#FFA630', width: '30px', height: '30px' }}
               />
             ) : (
               <FiMenu
-                style={{ color: ' #FFFFFF', width: '30px', height: '30px' }}
+                style={{ color: '#FFA630', width: '30px', height: '30px' }}
               />
             )}
           </button>
@@ -83,7 +83,7 @@ const Navbar = ({ cart }) => {
         <div className="NavBarContent">
           {/* Home Icon */}
           <Link to="/" className="navLogo">
-            <p>Brand Name</p>
+            <p>Heliacal</p>
           </Link>
 
           <Link to="/cart" className="cart-icon">
@@ -94,17 +94,20 @@ const Navbar = ({ cart }) => {
             {navbarOpen ? (
               <MdClose
                 role="button"
-                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
+                style={{ color: ' #FFA630', width: '30px', height: '30px' }}
               />
             ) : (
               <FiMenu
                 role="button"
-                style={{ color: ' #89C09F', width: '30px', height: '30px' }}
+                style={{ color: ' #FFA630', width: '30px', height: '30px' }}
               />
             )}
           </button>
         </div>
         <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`} role="button">
+          <Link to="/" onClick={() => closeMenu()}>
+            Home
+          </Link>
           <Link to="/product" onClick={() => closeMenu()}>
             Products
           </Link>
